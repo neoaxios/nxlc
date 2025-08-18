@@ -1,0 +1,43 @@
+# .ulcignore Example
+#
+# IMPORTANT: Rename this file to '.ulcignore' (remove .example) to use it
+# Place in the root directory you're analyzing (where you run ulc from)
+# Note: Unlike .gitignore, .ulcignore is NOT processed in subdirectories
+#
+# ULC only counts files with recognized programming language extensions.
+# Use .ulcignore to exclude specific source files or directories from counting.
+#
+# Pattern syntax (same as .gitignore):
+#   dir_name/       - Ignore directory and all its contents
+#   *.pattern       - Ignore files matching pattern
+#   **/pattern      - Match pattern in any directory
+#   !pattern        - Negate previous patterns (include back)
+
+# Example: Exclude generated source code files
+*.generated.py
+*.auto.cs
+*_pb2.py           # Protocol buffer generated Python files
+
+# Example: Exclude specific test directories
+load_tests/
+stress_tests/
+**/*benchmark*/
+
+# Example: Exclude vendored/third-party code
+vendor/
+third_party/
+external_libs/
+
+# Example: Exclude build configuration files that match source extensions
+*.cmake.in
+config.h.in
+
+# Example: Include specific files back (negate exclusion)
+# Exclude all SQL except migrations
+*.sql
+!migrations/*.sql
+
+# Example: Exclude example/sample code
+examples/
+samples/
+**/test_data/

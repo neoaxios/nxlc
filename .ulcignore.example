@@ -1,0 +1,102 @@
+# Example .ulcignore file for Universal Language Counter
+# Place this file as .ulcignore in your project root or any subdirectory
+# Patterns are inherited hierarchically from parent directories
+
+# === Node.js ===
+node_modules/
+bower_components/
+jspm_packages/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# === Build Outputs ===
+dist/
+build/
+target/
+bin/
+obj/
+out/
+*.egg-info/
+
+# === IDE and Editor Files ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Logs and Databases ===
+*.log
+*.sqlite
+*.db
+
+# === Coverage Reports ===
+coverage/
+htmlcov/
+.coverage
+*.cover
+.hypothesis/
+
+# === Documentation Builds ===
+docs/_build/
+site/
+
+# === Temporary Files ===
+*.tmp
+*.bak
+*.backup
+*.old
+.cache/
+
+# === Compiled Files ===
+*.min.js
+*.min.css
+*.map
+
+# === Package Manager Locks (optional) ===
+# Uncomment if you don't want to count lock files
+# package-lock.json
+# yarn.lock
+# Pipfile.lock
+# poetry.lock
+
+# === Test Data ===
+test_data/
+fixtures/
+mocks/
+
+# === Secrets and Environment ===
+.env
+.env.*
+*.key
+*.pem
+*.cert
+
+# === Pattern Negation Examples ===
+# You can use ! to re-include files that would otherwise be ignored
+# For example, to ignore all .log files except important.log:
+# *.log
+# !important.log
+
+# === Directory-specific ignores ===
+# Create .ulcignore files in subdirectories for more specific rules
+# Child directory patterns are added to (not replacing) parent patterns

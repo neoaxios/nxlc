@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ulc"
+version = "0.1.0"
+description = "Universal Language Counter - Fast line counting for 119+ programming languages"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "NeoAxios", email = "226793947+neoaxios-dev@users.noreply.github.com"},
+]
+maintainers = [
+    {name = "NeoAxios", email = "226793947+neoaxios-dev@users.noreply.github.com"},
+]
+keywords = [
+    "code-analysis", "line-counter", "programming-languages", "git-integration", 
+    "cloc", "sloccount", "tokei", "development-tools"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+    "Environment :: Console",
+]
+dependencies = []
+
+[project.optional-dependencies]
+enhanced = ["chardet>=4.0.0"]
+dev = ["chardet>=4.0.0", "pytest>=6.0", "black", "flake8"]
+
+[project.urls]
+Homepage = "https://github.com/neoaxios/ulc"
+Repository = "https://github.com/neoaxios/ulc"
+Documentation = "https://github.com/neoaxios/ulc#readme"
+"Bug Tracker" = "https://github.com/neoaxios/ulc/issues"
+Changelog = "https://github.com/neoaxios/ulc/blob/main/CHANGELOG.md"
+
+[project.scripts]
+ulc = "ulc:main"
+
+[tool.setuptools]
+py-modules = ["ulc"]
+include-package-data = false
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ulc*"]
+
+[tool.setuptools.package-data]
+ulc = ["LICENSE"]
+
+# Development tools configuration
+[tool.black]
+line-length = 100
+target-version = ['py36']
