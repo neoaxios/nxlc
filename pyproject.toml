@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Universal Language Counter - Fast line counting for 119+ programming languages"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "NeoAxios", email = "226793947+neoaxios-dev@users.noreply.github.com"},
 ]
