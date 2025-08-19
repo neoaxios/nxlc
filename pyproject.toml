@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ulc"
+name = "nxlc"
 version = "0.1.0"
 description = "Universal Language Counter - Fast line counting for 119+ programming languages"
 readme = "README.md"
@@ -49,7 +49,7 @@ Documentation = "https://github.com/neoaxios/ulc#readme"
 Changelog = "https://github.com/neoaxios/ulc/blob/main/CHANGELOG.md"
 
 [project.scripts]
-ulc = "ulc:main"
+nxlc = "ulc:main"
 
 [tool.setuptools]
 py-modules = ["ulc"]
