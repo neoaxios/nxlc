@@ -51,6 +51,56 @@ python3 nxlc.py --comprehensive
 
 See [INSTALL.md](docs/INSTALL.md) for detailed installation options.
 
+## Frequently Asked Questions (FAQ)
+
+### Known Issues
+
+#### Windows Store Python - PATH Issue
+  When installing NXLC via pip on Windows Store Python, you may see:
+  ```
+  WARNING: The script nxlc.exe is installed in 
+  'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts' 
+  which is not on PATH.
+  ```
+
+  **Solutions:**
+    1. **Use python module execution** (recommended):
+       ```bash
+       python -m nxlc
+       ```
+
+    2. **Install in a virtual environment**:
+       ```bash
+       # Create and activate virtual environment
+       python -m venv myenv
+       myenv\Scripts\activate
+       
+       # Install nxlc
+       pip install nxlc
+       
+       # Now nxlc command works directly
+       nxlc /path/to/project
+       ```
+
+    3. **Add Scripts directory to PATH**:
+       - Copy the path from the warning message
+       - Add it to your system PATH environment variable
+       - Restart your terminal
+
+### Common Questions
+
+**Q: Can I use NXLC without installing via pip?**
+A: Yes! NXLC can be used as a standalone script. Just download `nxlc.py` and run it directly with Python.
+
+**Q: How do I handle permission errors on Linux/macOS?**
+A: Use `pip install --user nxlc` or install in a virtual environment to avoid system-wide installation issues.
+
+**Q: Why are some files showing as "unknown" in debug mode?**
+A: Files with unrecognized extensions appear as unknown. You can contribute new language definitions via pull request.
+
+**Q: Does NXLC support Unicode and non-UTF-8 files?**
+A: Yes, NXLC handles various encodings. Install `chardet` for enhanced encoding detection: `pip install nxlc[enhanced]`
+
 ## Usage
 
 ```
