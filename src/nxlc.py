@@ -102,7 +102,7 @@ class IgnoreFileReader:
                         encoding: str = 'utf-8') -> List[str]:
         """
         Read and parse an ignore file with safety checks.
-        Can be reused for .gitignore, .dockerignore, .ulcignore, etc.
+        Can be reused for .gitignore, .dockerignore, .nxlcignore, etc.
         """
         if max_size is None:
             max_size = IgnoreFileReader.MAX_FILE_SIZE
@@ -162,7 +162,7 @@ class IgnoreContext:
         self.directory = directory.resolve()  # Use absolute path
         self.pattern_matcher = pattern_matcher
         self.parent = parent_context
-        self.patterns = []  # Local patterns from this dir's .ulcignore
+        self.patterns = []  # Local patterns from this dir's .nxlcignore
         self.cache = cache_strategy or LRUCacheStrategy()
         
         # Auto-detect case sensitivity if not specified
@@ -174,18 +174,18 @@ class IgnoreContext:
         self._load_patterns()
     
     def _load_patterns(self):
-        """Load .ulcignore patterns from current directory."""
-        ulcignore_path = self.directory / '.ulcignore'
-        if ulcignore_path.exists():
+        """Load .nxlcignore patterns from current directory."""
+        nxlcignore_path = self.directory / '.nxlcignore'
+        if nxlcignore_path.exists():
             # Limit file size to prevent DoS
             try:
-                if ulcignore_path.stat().st_size > self.MAX_FILE_SIZE:
-                    logging.warning(f".ulcignore file too large (>1MB): {ulcignore_path}")
+                if nxlcignore_path.stat().st_size > self.MAX_FILE_SIZE:
+                    logging.warning(f".nxlcignore file too large (>1MB): {nxlcignore_path}")
                     return
             except (OSError, IOError) as e:
-                logging.warning(f"Failed to stat .ulcignore file {ulcignore_path}: {e}")
+                logging.warning(f"Failed to stat .nxlcignore file {nxlcignore_path}: {e}")
                 return
-            self.patterns = self.pattern_matcher.process_ignore_file(ulcignore_path)
+            self.patterns = self.pattern_matcher.process_ignore_file(nxlcignore_path)
     
     def should_ignore(self, path: Path) -> bool:
         """Check if path should be ignored based on current and parent patterns."""
@@ -249,9 +249,9 @@ class IgnoreContextFactory:
     def create_context(self, 
                       directory: Path, 
                       parent: Optional[IgnoreContext] = None) -> Optional[IgnoreContext]:
-        """Create context only if .ulcignore exists (performance optimization)."""
-        ulcignore_path = directory / '.ulcignore'
-        if not ulcignore_path.exists() and parent is None:
+        """Create context only if .nxlcignore exists (performance optimization)."""
+        nxlcignore_path = directory / '.nxlcignore'
+        if not nxlcignore_path.exists() and parent is None:
             return None
         
         return IgnoreContext(
@@ -282,7 +282,7 @@ class LineCounterPatternAdapter:
     
     def matches_patterns(self, path: Path, patterns: List[str]) -> bool:
         """Check if path matches patterns using LineCounter logic."""
-        return self.line_counter.is_ulcignored(path, patterns)
+        return self.line_counter.is_nxlcignored(path, patterns)
 
 
 # Generic type for future enhancements
@@ -1033,10 +1033,10 @@ class LineCounter:
         return patterns
     
     @handle_file_errors(default_return=[], log_errors=True)
-    def process_ulcignore(self, ulcignore_path: Path) -> List[str]:
-        """Process .ulcignore file and return list of patterns."""
+    def process_nxlcignore(self, nxlcignore_path: Path) -> List[str]:
+        """Process .nxlcignore file and return list of patterns."""
         patterns = []
-        with self._safe_open_file(ulcignore_path) as f:
+        with self._safe_open_file(nxlcignore_path) as f:
             for line in f:
                 line = line.strip()
                 # Skip empty lines and comments
@@ -1051,8 +1051,8 @@ class LineCounter:
                 return True
         return False
     
-    def is_ulcignored(self, file_path: Path, ulc_patterns: List[str]) -> bool:
-        """Check if a file or directory matches any ulcignore pattern.
+    def is_nxlcignored(self, file_path: Path, nxlc_patterns: List[str]) -> bool:
+        """Check if a file or directory matches any nxlcignore pattern.
         
         Supports negation patterns (!) to re-include previously excluded files.
         Patterns are evaluated in order, with later patterns overriding earlier ones.
@@ -1060,7 +1060,7 @@ class LineCounter:
         path_str = str(file_path).replace('\\', '/')  # Normalize for cross-platform
         is_ignored = False
         
-        for pattern in ulc_patterns:
+        for pattern in nxlc_patterns:
             # Normalize pattern for cross-platform
             pattern = pattern.replace('\\', '/')
             
@@ -1141,12 +1141,12 @@ class LineCounter:
         )
         ignore_context = context_factory.create_context(directory)
         if verbose and ignore_context:
-            self.logger.info("Processing .ulcignore files hierarchically")
+            self.logger.info("Processing .nxlcignore files hierarchically")
         
         # Store git info in results for display
         results['is_git_repo'] = is_git_repo
         results['using_git'] = should_use_git
-        results['using_ulcignore'] = ignore_context is not None
+        results['using_nxlcignore'] = ignore_context is not None
         
         # Track visited directories to prevent infinite recursion with symlinks
         visited_dirs = set()
@@ -1175,7 +1175,7 @@ class LineCounter:
                     if new_context:
                         context = new_context
                         if verbose:
-                            self.logger.debug(f"Found .ulcignore in {current_dir}")
+                            self.logger.debug(f"Found .nxlcignore in {current_dir}")
                 elif context is None:
                     context = ignore_context
             
@@ -1188,7 +1188,7 @@ class LineCounter:
                             is_ignored, ignoring_context = context.should_ignore_with_context(item)
                             if is_ignored and ignoring_context:
                                 relative_item = item.relative_to(directory)
-                                self.logger.debug(f"Ignored {relative_item} by {ignoring_context.directory}/.ulcignore")
+                                self.logger.debug(f"Ignored {relative_item} by {ignoring_context.directory}/.nxlcignore")
                                 continue
                         elif context.should_ignore(item):
                             continue
@@ -1349,8 +1349,8 @@ def format_results(results: Dict[str, Any], colors: Colors, sort_by: str = 'line
         else:
             status_parts.append("git repository")
     
-    if results.get('using_ulcignore'):
-        status_parts.append("respecting .ulcignore")
+    if results.get('using_nxlcignore'):
+        status_parts.append("respecting .nxlcignore")
     
     status_text = ""
     if status_parts:
@@ -1389,13 +1389,13 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  ulc.py .                          # Count current directory (auto-respects .gitignore in git repos)
-  ulc.py /path/to/project           # Auto-detects git and respects .gitignore
-  ulc.py . --no-git                 # Ignore .gitignore even in git repos
-  ulc.py /non-git/dir --git         # Force .gitignore respect in non-git directory
-  ulc.py . --depth 2                # Limit depth to 2 levels
-  ulc.py . --sort files             # Sort by file count
-  ulc.py . --comprehensive          # Use GitHub Linguist for 400+ languages
+  nxlc.py .                          # Count current directory (auto-respects .gitignore in git repos)
+  nxlc.py /path/to/project           # Auto-detects git and respects .gitignore
+  nxlc.py . --no-git                 # Ignore .gitignore even in git repos
+  nxlc.py /non-git/dir --git         # Force .gitignore respect in non-git directory
+  nxlc.py . --depth 2                # Limit depth to 2 levels
+  nxlc.py . --sort files             # Sort by file count
+  nxlc.py . --comprehensive          # Use GitHub Linguist for 400+ languages
 
 Note: .gitignore is automatically respected in git repositories. Use --no-git to disable.
         """

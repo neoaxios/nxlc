@@ -42,26 +42,26 @@ enhanced = ["chardet>=4.0.0"]
 dev = ["chardet>=4.0.0", "pytest>=6.0", "black", "flake8"]
 
 [project.urls]
-Homepage = "https://github.com/neoaxios/ulc"
-Repository = "https://github.com/neoaxios/ulc"
-Documentation = "https://github.com/neoaxios/ulc#readme"
-"Bug Tracker" = "https://github.com/neoaxios/ulc/issues"
-Changelog = "https://github.com/neoaxios/ulc/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/neoaxios/nxlc"
+Repository = "https://github.com/neoaxios/nxlc"
+Documentation = "https://github.com/neoaxios/nxlc#readme"
+"Bug Tracker" = "https://github.com/neoaxios/nxlc/issues"
+Changelog = "https://github.com/neoaxios/nxlc/blob/main/CHANGELOG.md"
 
 [project.scripts]
-nxlc = "ulc:main"
+nxlc = "nxlc:main"
 
 [tool.setuptools]
-py-modules = ["ulc"]
+py-modules = ["nxlc"]
 include-package-data = false
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["ulc*"]
+include = ["nxlc*"]
 
 [tool.setuptools.package-data]
-ulc = ["LICENSE"]
+nxlc = ["LICENSE"]
 
 # Development tools configuration
 [tool.black]

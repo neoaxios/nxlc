@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 **Your question**
-A clear and concise question about ULC.
+A clear and concise question about NXLC.
 
 **What have you tried?**
 Describe what you've already attempted or researched.
@@ -18,4 +18,4 @@ Any additional context that might help answer your question.
 **Environment (if relevant):**
  - OS: [e.g. Ubuntu 22.04]
  - Python version: [e.g. 3.11.0]
- - ULC version: [e.g. 1.0.0]
+ - NXLC version: [e.g. 1.0.0]

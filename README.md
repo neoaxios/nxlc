@@ -1,4 +1,4 @@
-# Universal Language Counter (ULC)
+# NeoAxios Language Counter (NXLC)
 
 A fast, comprehensive programming language line counter supporting 119+ languages with intelligent conflict resolution and git integration.
 
@@ -7,7 +7,7 @@ A fast, comprehensive programming language line counter supporting 119+ language
 - **119+ Programming Languages**: From modern languages (Python, JavaScript, Rust) to legacy (COBOL, FORTRAN) and domain-specific (VHDL, MATLAB)
 - **Smart Language Detection**: Content analysis for ambiguous extensions (`.h`, `.m`, `.r`, `.pl`)
 - **Git Integration**: Auto-detects git repositories and respects `.gitignore` patterns
-- **Custom Ignore Files**: Support for `.ulcignore` to exclude files/directories from counting
+- **Custom Ignore Files**: Support for `.nxlcignore` to exclude files/directories from counting
 - **Cross-Platform**: Works on Windows, macOS, and Linux
 - **Colored Output**: Professional terminal output with color coding
 - **Debug Mode**: Unknown file analysis and extension reporting
@@ -17,26 +17,26 @@ A fast, comprehensive programming language line counter supporting 119+ language
 
 ```bash
 # Count current directory
-python3 ulc.py
+python3 nxlc.py
 
 # Count specific project with git integration
-python3 ulc.py /path/to/project
+python3 nxlc.py /path/to/project
 
 # Debug mode to see unknown files
-python3 ulc.py . --debug
+python3 nxlc.py . --debug
 
 # Sort by file count, no colors
-python3 ulc.py . --sort files --no-color
+python3 nxlc.py . --sort files --no-color
 ```
 
 ## Installation
 
-ULC is a **single-file standalone tool** - no installation required!
+NXLC is a **single-file standalone tool** - no installation required!
 
 ```bash
 # Download and run immediately  
-wget https://raw.githubusercontent.com/your-org/ulc/main/ulc.py
-python3 ulc.py /path/to/analyze
+wget https://raw.githubusercontent.com/your-org/nxlc/main/nxlc.py
+python3 nxlc.py /path/to/analyze
 ```
 
 ### Optional Enhancements
@@ -46,7 +46,7 @@ pip install chardet
 
 # 400+ language support (requires Ruby)
 gem install github-linguist
-python3 ulc.py --comprehensive
+python3 nxlc.py --comprehensive
 ```
 
 See [INSTALL.md](docs/INSTALL.md) for detailed installation options.
@@ -54,7 +54,7 @@ See [INSTALL.md](docs/INSTALL.md) for detailed installation options.
 ## Usage
 
 ```
-usage: ulc.py [-h] [--git] [--no-git] [--depth N] [--sort {lines,files,name}]
+usage: nxlc.py [-h] [--git] [--no-git] [--depth N] [--sort {lines,files,name}]
               [--verbose] [--comprehensive] [--linguist-path PATH]
               [--no-color] [--debug] [--version]
               [directory]
@@ -84,36 +84,36 @@ options:
 ### Basic Usage
 ```bash
 # Count lines in current directory
-python3 ulc.py
+python3 nxlc.py
 
 # Count specific directory
-python3 ulc.py /path/to/project
+python3 nxlc.py /path/to/project
 
 # Limit directory traversal depth
-python3 ulc.py . --depth 3
+python3 nxlc.py . --depth 3
 ```
 
 ### Git Integration
 ```bash
 # Auto-detects git repos and respects .gitignore
-python3 ulc.py /path/to/git/repo
+python3 nxlc.py /path/to/git/repo
 
 # Force git mode even outside repos
-python3 ulc.py . --git
+python3 nxlc.py . --git
 
 # Disable git integration completely
-python3 ulc.py . --no-git
+python3 nxlc.py . --no-git
 ```
 
-### Ignore Files with .ulcignore
-ULC supports a `.ulcignore` file to exclude specific files and directories from counting. This works independently of git and is useful for:
+### Ignore Files with .nxlcignore
+NXLC supports a `.nxlcignore` file to exclude specific files and directories from counting. This works independently of git and is useful for:
 - Non-git repositories
 - Additional exclusions beyond .gitignore
 - Temporary exclusions during development
 
-Create a `.ulcignore` file in your project root:
+Create a `.nxlcignore` file in your project root:
 ```bash
-# Example .ulcignore
+# Example .nxlcignore
 node_modules/
 dist/
 *.min.js
@@ -121,33 +121,33 @@ test_data/
 *.generated.*
 ```
 
-See `.ulcignore.example` for a comprehensive template.
+See `.nxlcignore.example` for a comprehensive template.
 
 ### Output Customization
 ```bash
 # Sort by file count instead of lines
-python3 ulc.py . --sort files
+python3 nxlc.py . --sort files
 
 # Sort alphabetically by language
-python3 ulc.py . --sort name
+python3 nxlc.py . --sort name
 
 # Disable colored output for scripts
-python3 ulc.py . --no-color
+python3 nxlc.py . --no-color
 
 # Verbose mode shows each file processed
-python3 ulc.py . --verbose
+python3 nxlc.py . --verbose
 ```
 
 ### Advanced Features
 ```bash
 # Debug mode shows unknown file extensions
-python3 ulc.py . --debug
+python3 nxlc.py . --debug
 
 # Comprehensive mode with GitHub Linguist
-python3 ulc.py . --comprehensive
+python3 nxlc.py . --comprehensive
 
 # Custom linguist path
-python3 ulc.py . --comprehensive --linguist-path /custom/path/linguist
+python3 nxlc.py . --comprehensive --linguist-path /custom/path/linguist
 ```
 
 ## Platform Compatibility

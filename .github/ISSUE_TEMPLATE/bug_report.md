@@ -29,7 +29,7 @@ Paste any error messages here
 **Environment:**
  - OS: [e.g. Ubuntu 22.04, Windows 11, macOS 14]
  - Python version: [e.g. 3.11.0]
- - ULC version: [e.g. 1.0.0]
+ - NXLC version: [e.g. 1.0.0]
  - Installation method: [pip, git clone, etc.]
 
 **Additional context**

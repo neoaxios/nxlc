@@ -1,9 +1,9 @@
-# Universal Language Counter - Build and Development Tasks
+# NeoAxios Language Counter - Build and Development Tasks
 
 .PHONY: help build test install install-dev clean lint format check-dist upload-test upload
 
 help:
-	@echo "Universal Language Counter - Available commands:"
+	@echo "NeoAxios Language Counter - Available commands:"
 	@echo ""
 	@echo "Development:"
 	@echo "  test          Run test suite"
@@ -29,11 +29,11 @@ test:
 	python3 -m pytest tests/ -v
 
 lint:
-	python3 -m flake8 ulc.py tests/ || echo "flake8 not installed, skipping"
-	python3 -c "import ast; ast.parse(open('ulc.py').read())" && echo "✓ ulc.py syntax OK"
+	python3 -m flake8 nxlc.py tests/ || echo "flake8 not installed, skipping"
+	python3 -c "import ast; ast.parse(open('nxlc.py').read())" && echo "✓ nxlc.py syntax OK"
 
 format:
-	python3 -m black ulc.py tests/ || echo "black not installed, skipping"
+	python3 -m black nxlc.py tests/ || echo "black not installed, skipping"
 
 install-dev:
 	pip install -e ".[dev]"
@@ -69,12 +69,12 @@ install:
 
 # Demo
 demo:
-	@echo "Running ULC on current directory..."
-	python3 ulc.py . --debug
+	@echo "Running NXLC on current directory..."
+	python3 nxlc.py . --debug
 
 # Quick verification
 verify:
 	@echo "Testing basic functionality..."
-	python3 ulc.py --version
-	python3 ulc.py --help > /dev/null
-	@echo "✓ ULC verification passed"
+	python3 nxlc.py --version
+	python3 nxlc.py --help > /dev/null
+	@echo "✓ NXLC verification passed"
