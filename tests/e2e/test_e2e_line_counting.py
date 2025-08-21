@@ -659,8 +659,10 @@ class TestE2ELineCounting(unittest.TestCase):
         report = TestReporter.generate_detailed_report(results)
         print(report)
         
-        # Save JSON report
-        report_path = Path(__file__).parent / 'test_results.json'
+        # Save JSON report to .tmp directory
+        tmp_dir = PROJECT_ROOT / '.tmp'
+        tmp_dir.mkdir(exist_ok=True)
+        report_path = tmp_dir / 'test_results.json'
         TestReporter.save_json_report(results, report_path)
         logger.info(f"Report saved to {report_path}")
         
