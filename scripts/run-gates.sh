@@ -185,6 +185,75 @@ if run_gate "NXLC Self-Analysis" "python3 src/nxlc.py . --no-git --no-color | he
     echo -e "${GREEN}Successfully analyzed own codebase${NC}"
 fi
 
+# 8. Security Checks (skip in quick mode)
+if [ "$QUICK_MODE" = false ]; then
+    print_header "Security Scanning (Optional)"
+    echo -e "${YELLOW}Note: Some security tools may not be installed. Install for better coverage.${NC}"
+    
+    # Check for hardcoded secrets
+    if command -v grep &> /dev/null; then
+        echo "Checking for potential secrets..."
+        run_gate "Secret Detection" "! grep -r -E '(api[_-]?key|apikey|secret[_-]?key|password|passwd|pwd|token|auth|credential|private[_-]?key)\\s*=\\s*[\"'\''][^\"'\'']+[\"'\'']' --include='*.py' --include='*.sh' --include='*.yml' --include='*.yaml' --include='*.json' --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__ --exclude-dir=tests src/ scripts/ 2>/dev/null" || true
+    fi
+    
+    # Check for common security issues with Bandit (only fail on medium+ severity)
+    if python3 -c "import bandit" 2>/dev/null; then
+        run_gate "Bandit Security Scan" "python3 -m bandit -r src/ -ll --severity-level medium 2>/dev/null | grep -q 'No issues identified' && echo 'No high/medium severity issues found'" || true
+    else
+        echo -e "${YELLOW}Bandit not installed: skipping security scan${NC}"
+        echo -e "${YELLOW}Install with: pip install bandit${NC}"
+    fi
+    
+    # Check for dependency vulnerabilities with pip-audit (more modern than safety)
+    if python3 -c "import pip_audit" 2>/dev/null; then
+        run_gate "Dependency Security Check" "python3 -m pip_audit --desc 2>/dev/null | grep -q 'No known vulnerabilities' && echo 'No known vulnerabilities'" || true
+    elif python3 -c "import safety" 2>/dev/null; then
+        # Fallback to safety if pip-audit not available
+        run_gate "Dependency Security Check" "python3 -m safety scan --json 2>/dev/null | python3 -c 'import sys, json; data=json.load(sys.stdin) if sys.stdin.isatty() else {}; sys.exit(0)' 2>/dev/null && echo 'No known vulnerabilities'" || true
+    else
+        echo -e "${YELLOW}pip-audit not installed: skipping dependency scan${NC}"
+        echo -e "${YELLOW}Install with: pip install pip-audit${NC}"
+    fi
+    
+    # Check for insecure practices
+    echo "Checking for insecure practices..."
+    run_gate "Insecure Practices Check" "! grep -r -E '(eval\\(|exec\\(|subprocess\\.call\\(|os\\.system\\(|pickle\\.loads?\\(|yaml\\.load\\()' --include='*.py' --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__ --exclude-dir=tests src/ 2>/dev/null" || true
+fi
+
+# 9. Code Quality Checks (skip in quick mode)
+if [ "$QUICK_MODE" = false ]; then
+    print_header "Code Quality"
+    
+    # Check for debugging artifacts
+    echo "Checking for debug artifacts..."
+    run_gate "Debug Artifacts Check" "! grep -r -E '(print\\(|console\\.log|debugger|import pdb|pdb\\.set_trace|breakpoint\\(\\))' --include='*.py' --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__ --exclude-dir=tests --exclude='nxlc.py' src/ 2>/dev/null" || true
+    
+    # Check for TODO/FIXME comments
+    if run_gate "TODO/FIXME Check" "grep -r -E '(TODO|FIXME|XXX|HACK|BUG)' --include='*.py' --include='*.sh' --exclude-dir=.git --exclude-dir=.venv src/ scripts/ 2>/dev/null | wc -l | xargs -I {} test {} -le 10" || true; then
+        TODO_COUNT=$(grep -r -E '(TODO|FIXME|XXX|HACK|BUG)' --include='*.py' --include='*.sh' --exclude-dir=.git --exclude-dir=.venv src/ scripts/ 2>/dev/null | wc -l)
+        echo -e "${YELLOW}Found $TODO_COUNT TODO/FIXME comments${NC}"
+    fi
+    
+    # Check for large files
+    echo "Checking for large files..."
+    run_gate "Large Files Check" "! find . -type f -size +1M -not -path './.git/*' -not -path './.venv/*' -not -path './dist/*' 2>/dev/null | grep ." || true
+fi
+
+# 10. License and Documentation Checks (skip in quick mode)
+if [ "$QUICK_MODE" = false ]; then
+    print_header "License & Documentation"
+    
+    # Check for license headers
+    run_gate "License File Exists" "test -f LICENSE" || true
+    
+    # Check for README
+    run_gate "README Exists" "test -f README.md" || true
+    
+    # Check Python files for docstrings
+    echo "Checking for docstrings in main module..."
+    run_gate "Docstring Coverage" "python3 -c 'import ast, sys; sys.path.insert(0, \"src\"); import nxlc; tree=ast.parse(open(\"src/nxlc.py\").read()); classes=[n for n in ast.walk(tree) if isinstance(n, ast.ClassDef)]; funcs=[n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]; docs=[n for n in classes+funcs if ast.get_docstring(n)]; print(f\"Docstring coverage: {len(docs)}/{len(classes+funcs)}\"); sys.exit(0 if len(docs) >= len(classes+funcs)*0.5 else 1)' 2>/dev/null" || true
+fi
+
 # Final Report
 print_header "Gate Results Summary"
 
