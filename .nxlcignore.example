@@ -1,5 +1,5 @@
-# Example .ulcignore file for Universal Language Counter
-# Place this file as .ulcignore in your project root or any subdirectory
+# Example .nxlcignore file for NeoAxios Language Counter
+# Place this file as .nxlcignore in your project root or any subdirectory
 # Patterns are inherited hierarchically from parent directories
 
 # === Node.js ===

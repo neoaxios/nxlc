@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Universal Language Counter will be documented in this file.
+All notable changes to NeoAxios Language Counter will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-08-18
 
 ### Added
-- **Hierarchical .ulcignore support** (now default behavior)
-  - Each directory can have its own `.ulcignore` file
+- **Hierarchical .nxlcignore support** (now default behavior)
+  - Each directory can have its own `.nxlcignore` file
   - Patterns are inherited from parent directories
   - Child patterns add to (don't replace) parent patterns
   - Similar to how `.gitignore` works in git repositories
@@ -17,18 +17,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Allows fine-grained control over exclusions
   - Example: `*.log` then `!important.log` keeps important.log
 - **Enhanced debug mode** for ignore patterns
-  - Shows which `.ulcignore` file caused a file to be ignored
-  - Usage: `ulc --debug /path/to/project`
+  - Shows which `.nxlcignore` file caused a file to be ignored
+  - Usage: `nxlc --debug /path/to/project`
 - **Thread-safe caching** with LRU eviction strategy
   - Improves performance for large projects
   - Configurable cache size (default 1000 entries)
 - **Security enhancements**
-  - 1MB file size limit for `.ulcignore` files
+  - 1MB file size limit for `.nxlcignore` files
   - Path traversal prevention
   - Input validation for all user inputs
 
 ### Changed
-- `.ulcignore` files now work hierarchically by default (no flag needed)
+- `.nxlcignore` files now work hierarchically by default (no flag needed)
 - Improved pattern matching performance with caching
 - Better cross-platform path handling
 
@@ -45,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.1] - 2025-08-15
 
 ### Added
-- Initial release of Universal Language Counter
+- Initial release of NeoAxios Language Counter
 - Support for 119+ programming languages
 - Smart language conflict resolution for ambiguous extensions
 - Git integration with automatic .gitignore respect

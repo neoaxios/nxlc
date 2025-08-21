@@ -1,6 +1,6 @@
-# Contributing to Universal Language Counter (ULC)
+# Contributing to NeoAxios Language Counter (NXLC)
 
-Thank you for your interest in contributing to ULC! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to NXLC! This document provides guidelines and instructions for contributing.
 
 ## Code of Conduct
 
@@ -40,7 +40,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 4. **Test your changes**
    ```bash
    python -m pytest tests/
-   python ulc.py .  # Manual testing
+   python nxlc.py .  # Manual testing
    ```
 
 5. **Submit a Pull Request**
@@ -53,8 +53,8 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/ulc.git
-cd ulc
+git clone https://github.com/YOUR_USERNAME/nxlc.git
+cd nxlc
 
 # Create virtual environment
 python -m venv .venv
@@ -86,7 +86,7 @@ pip install -e ".[dev]"
 
 To add support for a new programming language:
 
-1. Add language definition to `LANGUAGE_EXTENSIONS` in `ulc.py`
+1. Add language definition to `LANGUAGE_EXTENSIONS` in `nxlc.py`
 2. Handle any special comment syntax in language definitions
 3. Add test files in `tests/test_files/`
 4. Update README.md supported languages list
@@ -112,4 +112,4 @@ To add support for a new programming language:
 
 Open an issue with the "question" label or start a discussion.
 
-Thank you for contributing to ULC!
+Thank you for contributing to NXLC!

@@ -1,6 +1,6 @@
 # Build and Release Guide
 
-This document explains how to build, test, and release ULC (Universal Language Counter).
+This document explains how to build, test, and release NXLC (NeoAxios Language Counter).
 
 ## Development Setup
 
@@ -34,8 +34,8 @@ python3 -m build
 ```
 
 This creates:
-- `dist/ulc-1.0.0.tar.gz` (source distribution)
-- `dist/ulc-1.0.0-py3-none-any.whl` (wheel)
+- `dist/nxlc-1.0.0.tar.gz` (source distribution)
+- `dist/nxlc-1.0.0-py3-none-any.whl` (wheel)
 
 ### Verify Build
 ```bash
@@ -43,8 +43,8 @@ This creates:
 make check-dist
 
 # Test installation from wheel
-pip install dist/ulc-1.0.0-py3-none-any.whl
-ulc --version
+pip install dist/nxlc-1.0.0-py3-none-any.whl
+nxlc --version
 ```
 
 ## Testing
@@ -64,9 +64,9 @@ python3 -m pytest tests/ -v
 make demo
 
 # Test command line interface
-python3 ulc.py --version
-python3 ulc.py --help
-python3 ulc.py . --debug
+python3 nxlc.py --version
+python3 nxlc.py --help
+python3 nxlc.py . --debug
 ```
 
 ## Publishing
@@ -77,8 +77,8 @@ python3 ulc.py . --debug
 make upload-test
 
 # Test installation from TestPyPI
-pip install --index-url https://test.pypi.org/simple/ ulc
-ulc --version
+pip install --index-url https://test.pypi.org/simple/ nxlc
+nxlc --version
 ```
 
 ### Production Release (PyPI)
@@ -94,7 +94,7 @@ python3 -m twine upload dist/*
 
 ### Pre-Release
 - [ ] Update version in `pyproject.toml`
-- [ ] Update version in `ulc.py` (`--version` output)
+- [ ] Update version in `nxlc.py` (`--version` output)
 - [ ] Update `CHANGELOG.md` with new version
 - [ ] Run full test suite: `make test`
 - [ ] Test build: `make build && make check-dist`
@@ -115,23 +115,23 @@ python3 -m twine upload dist/*
 - [ ] Update documentation
 
 ### Post-Release
-- [ ] Verify PyPI listing: https://pypi.org/project/ulc/
-- [ ] Test installation: `pip install ulc`
+- [ ] Verify PyPI listing: https://pypi.org/project/nxlc/
+- [ ] Test installation: `pip install nxlc`
 - [ ] Update download counts in README
 - [ ] Announce release
 
 ## File Structure
 
 ```
-ulc/
-├── ulc.py              # Main script (single-file tool)
+nxlc/
+├── nxlc.py              # Main script (single-file tool)
 ├── pyproject.toml      # Modern Python packaging
 ├── setup.cfg           # Setuptools configuration
 ├── MANIFEST.in         # Package manifest
 ├── Makefile           # Build automation
 ├── tests/             # Test suite
 │   ├── __init__.py
-│   └── test_ulc.py
+│   └── test_nxlc.py
 ├── README.md          # Main documentation
 ├── INSTALL.md         # Installation guide
 ├── BUILD.md           # This file
@@ -164,10 +164,10 @@ make clean
 make build
 
 # Check for syntax errors
-python3 -c "import ast; ast.parse(open('ulc.py').read())"
+python3 -c "import ast; ast.parse(open('nxlc.py').read())"
 
 # Test import
-python3 -c "import ulc; print('Import successful')"
+python3 -c "import nxlc; print('Import successful')"
 ```
 
 ### Upload Issues
@@ -182,17 +182,17 @@ python3 -m twine upload --verbose dist/*
 ### Testing Issues
 ```bash
 # Run individual test
-python3 -m pytest tests/test_ulc.py::TestULC::test_basic -v
+python3 -m pytest tests/test_nxlc.py::TestNXLC::test_basic -v
 
 # Run with coverage
-python3 -m pytest --cov=ulc tests/
+python3 -m pytest --cov=nxlc tests/
 ```
 
 ## Dual Distribution Strategy
 
-ULC supports both:
+NXLC supports both:
 
-1. **Direct Download**: `wget ulc.py && python3 ulc.py`
-2. **pip Install**: `pip install ulc && ulc`
+1. **Direct Download**: `wget nxlc.py && python3 nxlc.py`
+2. **pip Install**: `pip install nxlc && nxlc`
 
-Both methods use the same `ulc.py` file, ensuring consistency and simplicity.
+Both methods use the same `nxlc.py` file, ensuring consistency and simplicity.

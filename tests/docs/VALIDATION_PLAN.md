@@ -1,8 +1,8 @@
-# ULC Validation Plan - Data Integrity & E2E Testing
+# NXLC Validation Plan - Data Integrity & E2E Testing
 
 ## Executive Summary
 
-This validation plan ensures the Universal Language Counter (ULC) maintains data integrity and correctness across all supported languages and edge cases. The plan focuses on verifying accurate line counting, proper language detection, and resilient handling of real-world codebases.
+This validation plan ensures the NeoAxios Language Counter (NXLC) maintains data integrity and correctness across all supported languages and edge cases. The plan focuses on verifying accurate line counting, proper language detection, and resilient handling of real-world codebases.
 
 ## 1. Data Integrity Validation
 
@@ -41,7 +41,7 @@ test_cases = {
     "mixed.cpp": (50, 30, 15, 5),
 }
 
-# Compare ULC output against known values
+# Compare NXLC output against known values
 # Assert exact matches - no tolerance for errors
 ```
 
@@ -112,7 +112,7 @@ large_repos:
 for tool in cloc tokei sloccount; do
     $tool /path/to/repo > $tool.output
 done
-ulc /path/to/repo > ulc.output
+nxlc /path/to/repo > nxlc.output
 
 # Compare outputs - expect <1% variance for:
 # - Total file count
@@ -207,9 +207,9 @@ def mutate_source_file(original_file):
 # .pre-commit-config.yaml
 - repo: local
   hooks:
-    - id: ulc-validation
-      name: ULC Data Integrity Check
-      entry: python validate_ulc.py
+    - id: nxlc-validation
+      name: NXLC Data Integrity Check
+      entry: python validate_nxlc.py
       language: python
       files: \.py$
 ```
@@ -217,7 +217,7 @@ def mutate_source_file(original_file):
 ### 5.2 CI/CD Integration
 ```yaml
 # GitHub Actions workflow
-name: ULC Validation Suite
+name: NXLC Validation Suite
 on: [push, pull_request]
 
 jobs:
@@ -288,7 +288,7 @@ jobs:
 ## 8. Test Data Repository Structure
 
 ```
-ulc-validation/
+nxlc-validation/
 ├── reference-files/          # Files with known counts
 │   ├── simple/              # Basic test cases
 │   ├── complex/             # Complex language features

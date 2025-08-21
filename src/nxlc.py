@@ -781,7 +781,7 @@ def handle_file_errors(default_return=None, log_errors=True):
 # ============================================================================
 
 class LineCounter:
-    """Universal Language Counter - Main class for counting lines of code with encapsulated state."""
+    """NeoAxios Language Counter - Main class for counting lines of code with encapsulated state."""
     
     def __init__(self, platform_adapter=None, use_comprehensive=False, linguist_cmd=None, 
                  logger=None, colors=None):
@@ -1292,7 +1292,7 @@ def format_results(results: Dict[str, Any], colors: Colors, sort_by: str = 'line
     output = []
     
     # Header with colon and top separator
-    output.append(f"{colors.HEADER}Universal Language Counter Results:{colors.RESET}")
+    output.append(f"{colors.HEADER}NeoAxios Language Counter Results:{colors.RESET}")
     output.append(f"{colors.SEPARATOR}{'-' * 80}{colors.RESET}")
     output.append(f"{'Language':<20} {'Files':<8} {'Total':<10} {'Code':<10} {'Comments':<10} {'%':<6}")
     output.append(f"{colors.SEPARATOR}{'-' * 80}{colors.RESET}")
@@ -1383,9 +1383,9 @@ def format_results(results: Dict[str, Any], colors: Colors, sort_by: str = 'line
 
 
 def main():
-    """Main entry point for Universal Language Counter."""
+    """Main entry point for NeoAxios Language Counter."""
     parser = argparse.ArgumentParser(
-        description="Universal Language Counter - Count lines of code across 119+ programming languages",
+        description="NeoAxios Language Counter - Count lines of code across 119+ programming languages",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -1421,7 +1421,7 @@ Note: .gitignore is automatically respected in git repositories. Use --no-git to
                        help='Disable colored output')
     parser.add_argument('--debug', action='store_true',
                        help='Enable debug mode (show unknown files and extension analysis)')
-    parser.add_argument('--version', action='version', version='Universal Language Counter 0.1.0')
+    parser.add_argument('--version', action='version', version='NeoAxios Language Counter 0.1.1')
     
     args = parser.parse_args()
     

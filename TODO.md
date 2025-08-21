@@ -1,4 +1,4 @@
-# TODO Items for ULC Release
+# TODO Items for NXLC Release
 
 This file lists all placeholder items that need to be filled in when preparing for release.
 
@@ -20,11 +20,11 @@ maintainers = [
 #### Project URLs
 ```toml
 [project.urls]
-Homepage = "https://github.com/TODO-ORG/ulc"
-Repository = "https://github.com/TODO-ORG/ulc"
-Documentation = "https://github.com/TODO-ORG/ulc#readme"
-"Bug Tracker" = "https://github.com/TODO-ORG/ulc/issues"
-Changelog = "https://github.com/TODO-ORG/ulc/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/TODO-ORG/nxlc"
+Repository = "https://github.com/TODO-ORG/nxlc"
+Documentation = "https://github.com/TODO-ORG/nxlc#readme"
+"Bug Tracker" = "https://github.com/TODO-ORG/nxlc/issues"
+Changelog = "https://github.com/TODO-ORG/nxlc/blob/main/CHANGELOG.md"
 ```
 **Action Required**: Replace `TODO-ORG` with actual GitHub organization/username.
 
@@ -48,7 +48,7 @@ grep -r "todo@example.com" .
 - [ ] Update GitHub URLs in `pyproject.toml`
 - [ ] Create actual GitHub repository
 - [ ] Test installation from built wheel: `pip install dist/*.whl`
-- [ ] Test CLI functionality: `ulc --version`, `ulc --help`
+- [ ] Test CLI functionality: `nxlc --version`, `nxlc --help`
 - [ ] Update version number if needed
 - [ ] Run full test suite: `make test`
 - [ ] Upload to TestPyPI first: `make upload-test`
@@ -66,16 +66,16 @@ grep -r "todo@example.com" .
 
 The package supports dual distribution:
 
-1. **Direct Download**: Users can download `ulc.py` and run directly
-2. **pip Install**: Users can install via `pip install ulc`
+1. **Direct Download**: Users can download `nxlc.py` and run directly
+2. **pip Install**: Users can install via `pip install nxlc`
 
-Both methods use the same `ulc.py` file for consistency.
+Both methods use the same `nxlc.py` file for consistency.
 
 ---
 
-## Hierarchical .ulcignore Implementation Tasks ✅ COMPLETED
+## Hierarchical .nxlcignore Implementation Tasks ✅ COMPLETED
 
-**Status**: Hierarchical .ulcignore is now the DEFAULT and ONLY behavior in ULC.
+**Status**: Hierarchical .nxlcignore is now the DEFAULT and ONLY behavior in NXLC.
 **Date Completed**: 2024
 **Total Effort**: ~15 hours (vs 20.5 hours estimated)
 
@@ -133,15 +133,15 @@ Both methods use the same `ulc.py` file for consistency.
 #### TASK-006: Create LineCounterPatternAdapter ✅
 - [x] Implement adapter for LineCounter compatibility
 - [x] Integrate with IgnoreFileReader
-- [x] Map process_ulcignore to process_ignore_file
-- [x] Map is_ulcignored to matches_patterns
+- [x] Map process_nxlcignore to process_ignore_file
+- [x] Map is_nxlcignored to matches_patterns
 - **Status**: COMPLETED
 - **Actual Effort**: 30 minutes
 
 ### Phase 3: Integration (Priority: High) ✅ COMPLETED
 
 #### TASK-007: Modify analyze_directory() Method ✅
-- [x] Remove existing .ulcignore loading code
+- [x] Remove existing .nxlcignore loading code
 - [x] Add PatternAdapter creation
 - [x] Add IgnoreContextFactory initialization
 - [x] Update analyze_recursively() signature
@@ -153,7 +153,7 @@ Both methods use the same `ulc.py` file for consistency.
 #### TASK-008: Update analyze_recursively() Function ✅
 - [x] Add ignore_context parameter
 - [x] Use factory to create contexts as needed
-- [x] Replace ulc_patterns check with context.should_ignore()
+- [x] Replace nxlc_patterns check with context.should_ignore()
 - [x] Pass context to subdirectory calls
 - [x] **BONUS**: Added debug support for tracking exclusions
 - **Status**: COMPLETED
@@ -171,7 +171,7 @@ Both methods use the same `ulc.py` file for consistency.
 - **Actual Effort**: 2 hours
 
 #### TASK-010: Write Integration Tests ✅
-- [x] Test nested .ulcignore scenarios
+- [x] Test nested .nxlcignore scenarios
 - [x] Test pattern conflict resolution
 - [x] Test negation patterns across hierarchy
 - [x] Test factory pattern integration
@@ -180,11 +180,11 @@ Both methods use the same `ulc.py` file for consistency.
 - **Actual Effort**: 1.5 hours
 
 #### TASK-011: Write Edge Case Tests ✅
-- [x] Test circular symlinks with .ulcignore
-- [x] Test large .ulcignore files (>1MB)
+- [x] Test circular symlinks with .nxlcignore
+- [x] Test large .nxlcignore files (>1MB)
 - [x] Test Unicode in patterns and paths
 - [x] Test case-insensitive file systems
-- [x] Test symlinked directories with .ulcignore
+- [x] Test symlinked directories with .nxlcignore
 - **Status**: COMPLETED
 - **Actual Effort**: 1 hour
 
@@ -197,7 +197,7 @@ Both methods use the same `ulc.py` file for consistency.
 - **Actual Effort**: 1 hour
 
 #### TASK-013: Write Security Tests ✅
-- [x] Test .ulcignore file size DoS prevention
+- [x] Test .nxlcignore file size DoS prevention
 - [x] Test regex pattern validation (ReDoS prevention)
 - [x] Test path traversal attempts
 - [x] Test malformed pattern handling
@@ -207,11 +207,11 @@ Both methods use the same `ulc.py` file for consistency.
 ### Phase 5: Documentation (Priority: Medium) ✅ COMPLETED
 
 #### TASK-014: Update User Documentation ✅
-- [x] Document hierarchical .ulcignore behavior
-- [x] Add examples of nested .ulcignore usage
+- [x] Document hierarchical .nxlcignore behavior
+- [x] Add examples of nested .nxlcignore usage
 - [x] Document pattern precedence rules
 - [x] Add troubleshooting section
-- **Status**: COMPLETED (see docs/hierarchical_ulcignore_implementation.md)
+- **Status**: COMPLETED (see docs/hierarchical_nxlcignore_implementation.md)
 - **Actual Effort**: 45 minutes
 
 #### TASK-015: Add Developer Documentation ✅
@@ -230,9 +230,9 @@ Both methods use the same `ulc.py` file for consistency.
 - **Status**: OBSOLETE - Feature is now default
 
 #### TASK-017: Debug Support ✅ INTEGRATED
-- [x] Track which .ulcignore file caused exclusion (works with --debug)
+- [x] Track which .nxlcignore file caused exclusion (works with --debug)
 - [x] Add verbose output for debugging
-- [x] Shows which directory's .ulcignore caused exclusion
+- [x] Shows which directory's .nxlcignore caused exclusion
 - **Status**: COMPLETED (integrated with --debug flag)
 - **Future Enhancement**: Could add pattern-specific debugging
 
@@ -248,7 +248,7 @@ Both methods use the same `ulc.py` file for consistency.
 
 #### TASK-019: Extract as Standalone Library
 - [ ] Create separate package structure
-- [ ] Remove ULC-specific dependencies
+- [ ] Remove NXLC-specific dependencies
 - [ ] Add setup.py/pyproject.toml
 - [ ] Publish to PyPI as 'hierarchical-ignore'
 - **Effort**: 3 hours
@@ -275,10 +275,10 @@ Both methods use the same `ulc.py` file for consistency.
 - Simplification: 0.25 hours ✅ (removed flat mode)
 
 **What We Built**:
-- ✅ Hierarchical .ulcignore is now the DEFAULT behavior
+- ✅ Hierarchical .nxlcignore is now the DEFAULT behavior
 - ✅ Pattern negation support (!pattern)
 - ✅ Thread-safe LRU caching
-- ✅ Debug support showing which .ulcignore excluded files
+- ✅ Debug support showing which .nxlcignore excluded files
 - ✅ Comprehensive test suite (36 tests)
 - ✅ Cross-platform support
 - ✅ Security hardening (file size limits, path validation)
@@ -298,7 +298,7 @@ Both methods use the same `ulc.py` file for consistency.
 4. **Extract as library**: Make ignore system reusable for other projects
 
 ### Potential New Features
-1. **Global ignore file**: Support for ~/.ulcignore_global
+1. **Global ignore file**: Support for ~/.nxlcignore_global
 2. **Pattern templates**: Named pattern groups for reuse
 3. **Conditional patterns**: Environment-specific ignores
 4. **Pattern testing tool**: CLI command to test what would be ignored

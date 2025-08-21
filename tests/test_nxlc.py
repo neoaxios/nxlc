@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Basic tests for ULC (Universal Language Counter)
+Basic tests for NXLC (NeoAxios Language Counter)
 """
 
 import os
@@ -20,8 +20,8 @@ except ImportError:
 
 
 @unittest.skipIf(nxlc is None, "nxlc module not available")
-class TestULC(unittest.TestCase):
-    """Test basic ULC functionality"""
+class TestNXLC(unittest.TestCase):
+    """Test basic NXLC functionality"""
 
     def setUp(self):
         """Set up test fixtures"""
@@ -34,7 +34,7 @@ class TestULC(unittest.TestCase):
         shutil.rmtree(self.temp_dir, ignore_errors=True)
 
     def test_imports(self):
-        """Test that ULC can be imported"""
+        """Test that NXLC can be imported"""
         self.assertIsNotNone(nxlc)
         self.assertTrue(hasattr(nxlc, 'main'))
         self.assertTrue(hasattr(nxlc, 'LineCounter'))
@@ -170,7 +170,7 @@ if __name__ == "__main__":
 
 
 class TestULCCLI(unittest.TestCase):
-    """Test ULC command-line interface"""
+    """Test NXLC command-line interface"""
 
     def test_version_flag(self):
         """Test --version flag"""
@@ -190,7 +190,7 @@ class TestULCCLI(unittest.TestCase):
         )
         
         self.assertEqual(result.returncode, 0)
-        self.assertIn("Universal Language Counter", result.stdout)
+        self.assertIn("NeoAxios Language Counter", result.stdout)
 
     def test_help_flag(self):
         """Test --help flag"""
@@ -210,7 +210,7 @@ class TestULCCLI(unittest.TestCase):
         )
         
         self.assertEqual(result.returncode, 0)
-        self.assertIn("Universal Language Counter", result.stdout)
+        self.assertIn("NeoAxios Language Counter", result.stdout)
         self.assertIn("usage:", result.stdout)
 
 

@@ -1,7 +1,7 @@
-# Hierarchical .ulcignore Implementation Summary
+# Hierarchical .nxlcignore Implementation Summary
 
 ## Overview
-Successfully implemented hierarchical .ulcignore support for ULC (Universal Language Counter), allowing subdirectories to have their own ignore rules that work in conjunction with parent directory rules.
+Successfully implemented hierarchical .nxlcignore support for NXLC (NeoAxios Language Counter), allowing subdirectories to have their own ignore rules that work in conjunction with parent directory rules.
 
 ## Implementation Components
 
@@ -60,10 +60,10 @@ Comprehensive test suite with 36 tests covering:
 ### Command Line
 ```bash
 # Enable hierarchical .ulcignore support
-ulc --hierarchical /path/to/project
+nxlc --hierarchical /path/to/project
 
 # Works with other flags
-ulc --hierarchical --git --depth 3 /path/to/project
+nxlc --hierarchical --git --depth 3 /path/to/project
 ```
 
 ### Example Structure
@@ -88,7 +88,7 @@ project/
 
 ### Reusability
 1. **IgnoreFileReader** - Can be used for .gitignore, .dockerignore, etc.
-2. **CacheStrategy** - Generic caching for any ULC components
+2. **CacheStrategy** - Generic caching for any NXLC components
 3. **HierarchicalConfigContext** - Template for other hierarchical configs
 
 ### Maintainability
@@ -125,13 +125,13 @@ project/
 ## Files Modified/Created
 
 ### New Files
-- `/src/ulc/hierarchical_ignore.py` - Core implementation (270 lines)
+- `/src/nxlc/hierarchical_ignore.py` - Core implementation (270 lines)
 - `/tests/test_hierarchical_ignore.py` - Comprehensive tests (860 lines)
 - `/examples/hierarchical_demo.py` - Usage demonstration (140 lines)
 - `/docs/hierarchical_ulcignore_implementation.md` - This documentation
 
 ### Modified Files
-- `/src/ulc.py` - Integration points and CLI flag
+- `/src/nxlc.py` - Integration points and CLI flag
 
 ## Performance Impact
 - **Minimal overhead**: ~1-2ms per directory with .ulcignore

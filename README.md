@@ -109,7 +109,7 @@ usage: nxlc.py [-h] [--git] [--no-git] [--depth N] [--sort {lines,files,name}]
               [--no-color] [--debug] [--version]
               [directory]
 
-Universal Language Counter - Count lines of code across 119+ programming languages
+NeoAxios Language Counter - Count lines of code across 119+ programming languages
 
 positional arguments:
   directory             Directory to analyze (default: current directory)
@@ -246,7 +246,7 @@ VHDL, Verilog, MATLAB, Mathematica, SAS, SPSS, AutoLISP, OpenSCAD
 ## Sample Output
 
 ```
-Universal Language Counter Results:
+NeoAxios Language Counter Results:
 --------------------------------------------------------------------------------
 Language             Files    Total      Code       Comments   %     
 --------------------------------------------------------------------------------
@@ -325,4 +325,4 @@ MIT License - see LICENSE file for details.
 
 ---
 
-**Universal Language Counter** - Professional code analysis made simple.
+**NeoAxios Language Counter** - Professional code analysis made simple.
