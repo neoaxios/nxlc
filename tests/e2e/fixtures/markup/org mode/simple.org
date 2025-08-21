@@ -1,0 +1,14 @@
+Textile Simple test file for Org Mode
+Textile This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  Textile Call the function
+Textile
+ * Multi-line comment
+ * Second line
+ Textile

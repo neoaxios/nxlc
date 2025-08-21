@@ -1,0 +1,14 @@
+XSD Simple test file for XSD
+XSD This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  XSD Call the function
+XSD
+ * Multi-line comment
+ * Second line
+ XSD

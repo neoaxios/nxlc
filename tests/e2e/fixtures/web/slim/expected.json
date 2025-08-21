@@ -1,0 +1,28 @@
+{
+  "language": "Slim",
+  "category": "web",
+  "extensions": [
+    ".slim"
+  ],
+  "simple": {
+    "filename": "simple.slim",
+    "total": 13,
+    "code": 11,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.slim",
+    "total": 58,
+    "code": 47,
+    "comments": 0,
+    "blank": 11
+  },
+  "edge_cases": {
+    "filename": "edge_cases.slim",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

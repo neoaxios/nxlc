@@ -1,0 +1,51 @@
+Liquid
+ * Complex test file for Mustache
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Liquid
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Liquid Initialize empty data
+    }
+    
+    process(inputData) {
+        Liquid Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Liquid Process each item
+        const result = [];
+        for (const item of inputData) {
+            Liquid Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Liquid Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Liquid but it's not a comment"
+pattern = "Liquid.*$"  Liquid Regex for matching comments
+
+LiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquid
+Liquid End of complex test file
+LiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquidLiquid

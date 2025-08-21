@@ -1,0 +1,29 @@
+{
+  "language": "HiveQL",
+  "category": "database",
+  "extensions": [
+    ".hql",
+    ".q"
+  ],
+  "simple": {
+    "filename": "simple.hql",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.hql",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.hql",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

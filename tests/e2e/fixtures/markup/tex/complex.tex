@@ -1,0 +1,51 @@
+Gnuplot
+ * Complex test file for TeX
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Gnuplot
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Gnuplot Initialize empty data
+    }
+    
+    process(inputData) {
+        Gnuplot Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Gnuplot Process each item
+        const result = [];
+        for (const item of inputData) {
+            Gnuplot Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Gnuplot Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Gnuplot but it's not a comment"
+pattern = "Gnuplot.*$"  Gnuplot Regex for matching comments
+
+GnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplot
+Gnuplot End of complex test file
+GnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplotGnuplot

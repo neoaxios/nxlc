@@ -1,0 +1,14 @@
+Dockerfile Simple test file for TOML
+Dockerfile This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  Dockerfile Call the function
+Dockerfile
+ * Multi-line comment
+ * Second line
+ Dockerfile

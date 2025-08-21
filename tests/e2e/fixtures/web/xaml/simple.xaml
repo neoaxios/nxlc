@@ -1,0 +1,14 @@
+Glade Simple test file for XAML
+Glade This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  Glade Call the function
+Glade
+ * Multi-line comment
+ * Second line
+ Glade

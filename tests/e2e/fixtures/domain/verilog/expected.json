@@ -1,0 +1,29 @@
+{
+  "language": "Verilog",
+  "category": "domain",
+  "extensions": [
+    ".v",
+    ".vh"
+  ],
+  "simple": {
+    "filename": "simple.v",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.v",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.v",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

@@ -1,0 +1,51 @@
+JCL
+ * Complex test file for PL/I
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ JCL
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  JCL Initialize empty data
+    }
+    
+    process(inputData) {
+        JCL Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        JCL Process each item
+        const result = [];
+        for (const item of inputData) {
+            JCL Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        JCL Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains JCL but it's not a comment"
+pattern = "JCL.*$"  JCL Regex for matching comments
+
+JCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCL
+JCL End of complex test file
+JCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCLJCL

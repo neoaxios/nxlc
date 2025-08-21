@@ -1,0 +1,58 @@
+TOML
+ * Complex test file for YAML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ TOML
+
+class DataProcessor:
+    """
+    A class for processing data.
+    
+    This demonstrates multi-line doc strings.
+    """
+    
+    def __init__(self, config):
+        """Initialize with config."""
+        self.config = config
+        self.data = []  TOML Initialize empty data
+    
+    def process(self, input_data):
+        """
+        Process input data.
+        
+        Args:
+            input_data: The data to process
+        """
+        TOML Check if data is valid
+        if not input_data:
+            return None
+        
+        TOML Process each item
+        result = []
+        for item in input_data:
+            TOML Skip invalid items
+            if self.validate(item):
+                processed = self.transform(item)
+                result.append(processed)
+        
+        return result
+    
+    def validate(self, item):
+        """Validate an item."""
+        return item is not None
+    
+    def transform(self, item):
+        """Transform an item."""
+        TOML Apply transformation
+        return item.upper() if isinstance(item, str) else item
+
+message = "This string contains TOML but it's not a comment"
+pattern = "TOML.*$"  TOML Regex for matching comments
+
+TOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOML
+TOML End of complex test file
+TOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOMLTOML

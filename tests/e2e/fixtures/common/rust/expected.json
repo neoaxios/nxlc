@@ -1,0 +1,28 @@
+{
+  "language": "Rust",
+  "category": "common",
+  "extensions": [
+    ".rs"
+  ],
+  "simple": {
+    "filename": "simple.rs",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.rs",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.rs",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

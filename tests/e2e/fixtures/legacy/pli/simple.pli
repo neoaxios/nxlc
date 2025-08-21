@@ -1,0 +1,14 @@
+JCL Simple test file for PL/I
+JCL This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  JCL Call the function
+JCL
+ * Multi-line comment
+ * Second line
+ JCL

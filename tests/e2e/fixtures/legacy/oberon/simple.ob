@@ -1,0 +1,14 @@
+PL/I Simple test file for Oberon
+PL/I This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  PL/I Call the function
+PL/I
+ * Multi-line comment
+ * Second line
+ PL/I

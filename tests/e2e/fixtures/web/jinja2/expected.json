@@ -1,0 +1,30 @@
+{
+  "language": "Jinja2",
+  "category": "web",
+  "extensions": [
+    ".j2",
+    ".jinja",
+    ".jinja2"
+  ],
+  "simple": {
+    "filename": "simple.j2",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.j2",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.j2",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

@@ -1,0 +1,51 @@
+Mermaid
+ * Complex test file for DOT
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Mermaid
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Mermaid Initialize empty data
+    }
+    
+    process(inputData) {
+        Mermaid Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Mermaid Process each item
+        const result = [];
+        for (const item of inputData) {
+            Mermaid Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Mermaid Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Mermaid but it's not a comment"
+pattern = "Mermaid.*$"  Mermaid Regex for matching comments
+
+MermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaid
+Mermaid End of complex test file
+MermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaidMermaid

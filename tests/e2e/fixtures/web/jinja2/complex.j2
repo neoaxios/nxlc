@@ -1,0 +1,51 @@
+Smarty
+ * Complex test file for Jinja2
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Smarty
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Smarty Initialize empty data
+    }
+    
+    process(inputData) {
+        Smarty Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Smarty Process each item
+        const result = [];
+        for (const item of inputData) {
+            Smarty Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Smarty Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Smarty but it's not a comment"
+pattern = "Smarty.*$"  Smarty Regex for matching comments
+
+SmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmarty
+Smarty End of complex test file
+SmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmartySmarty

@@ -1,0 +1,29 @@
+{
+  "language": "PlantUML",
+  "category": "domain",
+  "extensions": [
+    ".puml",
+    ".plantuml"
+  ],
+  "simple": {
+    "filename": "simple.puml",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.puml",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.puml",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

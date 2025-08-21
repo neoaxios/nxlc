@@ -1,0 +1,14 @@
+KML Simple test file for Glade
+KML This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  KML Call the function
+KML
+ * Multi-line comment
+ * Second line
+ KML

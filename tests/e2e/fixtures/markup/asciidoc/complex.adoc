@@ -1,0 +1,51 @@
+Org Mode
+ * Complex test file for AsciiDoc
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Org Mode
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Org Mode Initialize empty data
+    }
+    
+    process(inputData) {
+        Org Mode Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Org Mode Process each item
+        const result = [];
+        for (const item of inputData) {
+            Org Mode Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Org Mode Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Org Mode but it's not a comment"
+pattern = "Org Mode.*$"  Org Mode Regex for matching comments
+
+Org ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg Mode
+Org Mode End of complex test file
+Org ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg ModeOrg Mode

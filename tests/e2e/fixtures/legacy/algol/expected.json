@@ -1,0 +1,29 @@
+{
+  "language": "ALGOL",
+  "category": "legacy",
+  "extensions": [
+    ".alg",
+    ".a68"
+  ],
+  "simple": {
+    "filename": "simple.alg",
+    "total": 14,
+    "code": 9,
+    "comments": 3,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.alg",
+    "total": 51,
+    "code": 37,
+    "comments": 6,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.alg",
+    "total": 22,
+    "code": 8,
+    "comments": 6,
+    "blank": 8
+  }
+}

@@ -1,0 +1,51 @@
+DOT
+ * Complex test file for BibTeX
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ DOT
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  DOT Initialize empty data
+    }
+    
+    process(inputData) {
+        DOT Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        DOT Process each item
+        const result = [];
+        for (const item of inputData) {
+            DOT Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        DOT Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains DOT but it's not a comment"
+pattern = "DOT.*$"  DOT Regex for matching comments
+
+DOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOT
+DOT End of complex test file
+DOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOTDOT

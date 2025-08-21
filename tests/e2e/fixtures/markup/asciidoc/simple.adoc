@@ -1,0 +1,14 @@
+Org Mode Simple test file for AsciiDoc
+Org Mode This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  Org Mode Call the function
+Org Mode
+ * Multi-line comment
+ * Second line
+ Org Mode

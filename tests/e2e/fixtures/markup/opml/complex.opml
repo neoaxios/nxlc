@@ -1,0 +1,51 @@
+WSDL
+ * Complex test file for OPML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ WSDL
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  WSDL Initialize empty data
+    }
+    
+    process(inputData) {
+        WSDL Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        WSDL Process each item
+        const result = [];
+        for (const item of inputData) {
+            WSDL Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        WSDL Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains WSDL but it's not a comment"
+pattern = "WSDL.*$"  WSDL Regex for matching comments
+
+WSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDL
+WSDL End of complex test file
+WSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDLWSDL

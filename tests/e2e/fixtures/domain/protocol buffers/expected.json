@@ -1,0 +1,28 @@
+{
+  "language": "Protocol Buffers",
+  "category": "domain",
+  "extensions": [
+    ".proto"
+  ],
+  "simple": {
+    "filename": "simple.proto",
+    "total": 1,
+    "code": 14,
+    "comments": 12,
+    "blank": -25
+  },
+  "complex": {
+    "filename": "complex.proto",
+    "total": 1,
+    "code": 51,
+    "comments": 43,
+    "blank": -93
+  },
+  "edge_cases": {
+    "filename": "edge_cases.proto",
+    "total": 1,
+    "code": 22,
+    "comments": 14,
+    "blank": -35
+  }
+}

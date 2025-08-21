@@ -1,0 +1,28 @@
+{
+  "language": "SPSS",
+  "category": "scientific",
+  "extensions": [
+    ".sps"
+  ],
+  "simple": {
+    "filename": "simple.sps",
+    "total": 14,
+    "code": 10,
+    "comments": 2,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.sps",
+    "total": 51,
+    "code": 36,
+    "comments": 7,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.sps",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

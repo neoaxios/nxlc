@@ -1,0 +1,29 @@
+{
+  "language": "Modula-3",
+  "category": "legacy",
+  "extensions": [
+    ".m3",
+    ".i3"
+  ],
+  "simple": {
+    "filename": "simple.m3",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.m3",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.m3",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

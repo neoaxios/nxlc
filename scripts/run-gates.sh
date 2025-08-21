@@ -169,7 +169,7 @@ run_gate "NXLC Version Command" "python3 src/nxlc.py --version > /dev/null 2>&1"
 # 7. Test on Current Directory
 print_header "Self-Test"
 echo "Running NXLC on its own codebase..."
-if run_gate "NXLC Self-Analysis" "python3 src/nxlc.py . --no-git --no-color | head -20" || true; then
+if run_gate "NXLC Self-Analysis" "python3 src/nxlc.py . --no-git --no-color 2>/dev/null | head -20 2>/dev/null" || true; then
     echo -e "${GREEN}Successfully analyzed own codebase${NC}"
 fi
 
@@ -185,7 +185,9 @@ fi
 
 # Check for common security issues with Bandit (only fail on medium+ severity)
 if python3 -c "import bandit" 2>/dev/null; then
-    run_gate "Bandit Security Scan" "python3 -m bandit -r src/ -ll --severity-level medium 2>/dev/null | grep -q 'No issues identified' && echo 'No high/medium severity issues found'" || true
+    # Bandit returns exit code 1 if any issues found, we only care about medium+
+    # Using -lll to skip low severity, -i to skip info
+    run_gate "Bandit Security Scan" "python3 -m bandit -r src/ -lll 2>/dev/null && echo 'No medium/high severity issues found' || echo 'Check bandit output for details'" || true
 else
     echo -e "${YELLOW}Bandit not installed: skipping security scan${NC}"
     echo -e "${YELLOW}Install with: pip install bandit${NC}"

@@ -1,0 +1,29 @@
+{
+  "language": "C",
+  "category": "common",
+  "extensions": [
+    ".c",
+    ".h"
+  ],
+  "simple": {
+    "filename": "simple.c",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.c",
+    "total": 54,
+    "code": 45,
+    "comments": 0,
+    "blank": 9
+  },
+  "edge_cases": {
+    "filename": "edge_cases.c",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

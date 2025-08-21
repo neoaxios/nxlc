@@ -1,0 +1,51 @@
+REXX
+ * Complex test file for RPG
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ REXX
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  REXX Initialize empty data
+    }
+    
+    process(inputData) {
+        REXX Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        REXX Process each item
+        const result = [];
+        for (const item of inputData) {
+            REXX Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        REXX Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains REXX but it's not a comment"
+pattern = "REXX.*$"  REXX Regex for matching comments
+
+REXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXX
+REXX End of complex test file
+REXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXXREXX

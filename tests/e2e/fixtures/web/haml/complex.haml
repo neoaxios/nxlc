@@ -1,0 +1,58 @@
+Pug
+ * Complex test file for HAML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Pug
+
+class DataProcessor:
+    """
+    A class for processing data.
+    
+    This demonstrates multi-line doc strings.
+    """
+    
+    def __init__(self, config):
+        """Initialize with config."""
+        self.config = config
+        self.data = []  Pug Initialize empty data
+    
+    def process(self, input_data):
+        """
+        Process input data.
+        
+        Args:
+            input_data: The data to process
+        """
+        Pug Check if data is valid
+        if not input_data:
+            return None
+        
+        Pug Process each item
+        result = []
+        for item in input_data:
+            Pug Skip invalid items
+            if self.validate(item):
+                processed = self.transform(item)
+                result.append(processed)
+        
+        return result
+    
+    def validate(self, item):
+        """Validate an item."""
+        return item is not None
+    
+    def transform(self, item):
+        """Transform an item."""
+        Pug Apply transformation
+        return item.upper() if isinstance(item, str) else item
+
+message = "This string contains Pug but it's not a comment"
+pattern = "Pug.*$"  Pug Regex for matching comments
+
+PugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPug
+Pug End of complex test file
+PugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPugPug

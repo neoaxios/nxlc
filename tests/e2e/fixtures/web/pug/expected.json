@@ -1,0 +1,29 @@
+{
+  "language": "Pug",
+  "category": "web",
+  "extensions": [
+    ".pug",
+    ".jade"
+  ],
+  "simple": {
+    "filename": "simple.pug",
+    "total": 13,
+    "code": 11,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.pug",
+    "total": 58,
+    "code": 47,
+    "comments": 0,
+    "blank": 11
+  },
+  "edge_cases": {
+    "filename": "edge_cases.pug",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

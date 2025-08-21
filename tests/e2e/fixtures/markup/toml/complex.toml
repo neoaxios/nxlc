@@ -1,0 +1,51 @@
+Dockerfile
+ * Complex test file for TOML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Dockerfile
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Dockerfile Initialize empty data
+    }
+    
+    process(inputData) {
+        Dockerfile Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Dockerfile Process each item
+        const result = [];
+        for (const item of inputData) {
+            Dockerfile Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Dockerfile Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Dockerfile but it's not a comment"
+pattern = "Dockerfile.*$"  Dockerfile Regex for matching comments
+
+DockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfile
+Dockerfile End of complex test file
+DockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfileDockerfile

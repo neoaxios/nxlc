@@ -1,0 +1,29 @@
+{
+  "language": "PL/I",
+  "category": "legacy",
+  "extensions": [
+    ".pli",
+    ".pl1"
+  ],
+  "simple": {
+    "filename": "simple.pli",
+    "total": 14,
+    "code": 6,
+    "comments": 7,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.pli",
+    "total": 51,
+    "code": 30,
+    "comments": 18,
+    "blank": 6
+  },
+  "edge_cases": {
+    "filename": "edge_cases.pli",
+    "total": 22,
+    "code": 10,
+    "comments": 8,
+    "blank": 8
+  }
+}

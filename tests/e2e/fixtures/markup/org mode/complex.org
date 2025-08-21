@@ -1,0 +1,51 @@
+Textile
+ * Complex test file for Org Mode
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Textile
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Textile Initialize empty data
+    }
+    
+    process(inputData) {
+        Textile Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Textile Process each item
+        const result = [];
+        for (const item of inputData) {
+            Textile Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Textile Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Textile but it's not a comment"
+pattern = "Textile.*$"  Textile Regex for matching comments
+
+TextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextile
+Textile End of complex test file
+TextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextileTextile

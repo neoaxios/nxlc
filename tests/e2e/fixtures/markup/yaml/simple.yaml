@@ -1,0 +1,13 @@
+TOML Simple test file for YAML
+TOML This tests basic line counting
+
+def main():
+    x = 42
+    y = x * 2
+    return y
+
+result = main()  TOML Call the function
+TOML
+ * Multi-line comment
+ * Second line
+ TOML

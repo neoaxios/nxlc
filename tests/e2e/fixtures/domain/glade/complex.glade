@@ -1,0 +1,51 @@
+KML
+ * Complex test file for Glade
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ KML
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  KML Initialize empty data
+    }
+    
+    process(inputData) {
+        KML Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        KML Process each item
+        const result = [];
+        for (const item of inputData) {
+            KML Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        KML Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains KML but it's not a comment"
+pattern = "KML.*$"  KML Regex for matching comments
+
+KMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKML
+KML End of complex test file
+KMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKMLKML

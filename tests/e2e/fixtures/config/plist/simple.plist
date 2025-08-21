@@ -1,0 +1,14 @@
+ReStructuredText Simple test file for Plist
+ReStructuredText This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  ReStructuredText Call the function
+ReStructuredText
+ * Multi-line comment
+ * Second line
+ ReStructuredText

@@ -1,0 +1,29 @@
+{
+  "language": "Nim",
+  "category": "systems",
+  "extensions": [
+    ".nim",
+    ".nims"
+  ],
+  "simple": {
+    "filename": "simple.nim",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.nim",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.nim",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "version": "1.0.0",
+  "categories": {
+    "common": {
+      "description": "Most commonly used languages (GitHub top 50)",
+      "priority": 1,
+      "languages": [
+        "python", "javascript", "java", "cpp", "c", "typescript",
+        "go", "rust", "ruby", "php", "csharp", "swift", "kotlin",
+        "scala", "shell", "powershell", "perl", "lua", "r", "matlab"
+      ]
+    },
+    "web": {
+      "description": "Web development technologies",
+      "priority": 2,
+      "languages": [
+        "html", "css", "scss", "sass", "less", "typescript",
+        "javascript", "vue", "svelte", "jsx", "tsx", "coffeescript",
+        "elm", "purescript", "reasonml", "php", "asp", "jsp"
+      ]
+    },
+    "systems": {
+      "description": "Systems programming languages",
+      "priority": 2,
+      "languages": [
+        "c", "cpp", "rust", "go", "zig", "nim", "d", "crystal",
+        "ada", "pascal", "delphi", "fortran", "cobol", "assembly"
+      ]
+    },
+    "scripting": {
+      "description": "Scripting and automation languages",
+      "priority": 3,
+      "languages": [
+        "bash", "powershell", "python", "perl", "ruby", "lua",
+        "tcl", "awk", "sed", "fish", "zsh", "ksh", "batch"
+      ]
+    },
+    "data": {
+      "description": "Data and configuration formats",
+      "priority": 3,
+      "languages": [
+        "json", "yaml", "toml", "ini", "xml", "properties",
+        "env", "csv", "tsv", "protobuf", "thrift", "avro",
+        "graphql", "openapi"
+      ]
+    },
+    "legacy": {
+      "description": "Legacy and historical languages",
+      "priority": 4,
+      "languages": [
+        "cobol", "fortran", "pascal", "ada", "basic", "lisp",
+        "scheme", "smalltalk", "prolog", "forth", "algol",
+        "simula", "apl", "mumps"
+      ]
+    },
+    "functional": {
+      "description": "Functional programming languages",
+      "priority": 3,
+      "languages": [
+        "haskell", "ocaml", "fsharp", "scala", "clojure",
+        "elixir", "erlang", "lisp", "scheme", "racket",
+        "ml", "idris", "agda", "elm", "purescript"
+      ]
+    },
+    "mobile": {
+      "description": "Mobile development languages",
+      "priority": 2,
+      "languages": [
+        "swift", "kotlin", "dart", "objectivec", "java",
+        "reactnative", "flutter", "xamarin"
+      ]
+    },
+    "scientific": {
+      "description": "Scientific and statistical computing",
+      "priority": 3,
+      "languages": [
+        "r", "julia", "matlab", "octave", "mathematica",
+        "maple", "sagemath", "fortran", "idl", "ncl",
+        "igor", "gnuplot", "scipy"
+      ]
+    },
+    "database": {
+      "description": "Database and query languages",
+      "priority": 3,
+      "languages": [
+        "sql", "mysql", "postgresql", "sqlite", "plsql",
+        "tsql", "plpgsql", "mongodb", "cassandra", "redis",
+        "neo4j", "sparql", "graphql"
+      ]
+    },
+    "hardware": {
+      "description": "Hardware description languages",
+      "priority": 4,
+      "languages": [
+        "vhdl", "verilog", "systemverilog", "chisel",
+        "bluespec", "firrtl", "spice", "liberty"
+      ]
+    },
+    "assembly": {
+      "description": "Assembly languages",
+      "priority": 4,
+      "languages": [
+        "x86", "x86_64", "arm", "arm64", "mips", "riscv",
+        "powerpc", "sparc", "z80", "6502", "68k"
+      ]
+    },
+    "markup": {
+      "description": "Markup and documentation languages",
+      "priority": 3,
+      "languages": [
+        "markdown", "restructuredtext", "asciidoc", "latex",
+        "bibtex", "context", "man", "pod", "texinfo",
+        "org", "wiki", "bbcode", "creole"
+      ]
+    },
+    "configuration": {
+      "description": "Build and configuration languages",
+      "priority": 3,
+      "languages": [
+        "makefile", "cmake", "autotools", "gradle", "maven",
+        "ant", "bazel", "buck", "ninja", "dockerfile",
+        "dockercompose", "kubernetes", "terraform", "ansible"
+      ]
+    },
+    "specialized": {
+      "description": "Domain-specific and specialized languages",
+      "priority": 4,
+      "languages": [
+        "solidity", "move", "cadence", "openscad", "gcode",
+        "glsl", "hlsl", "metal", "wgsl", "regex", "bnf",
+        "antlr", "yacc", "lex", "jinja", "liquid"
+      ]
+    }
+  },
+  "language_metadata": {
+    "python": {
+      "full_name": "Python",
+      "category": "common",
+      "extensions": [".py", ".pyw", ".pyi"],
+      "has_multiline_comments": true,
+      "comment_styles": ["#", "\"\"\"", "'''"],
+      "test_priority": "high",
+      "language_server": "pylsp",
+      "package_manager": "pip"
+    },
+    "javascript": {
+      "full_name": "JavaScript",
+      "category": "common",
+      "extensions": [".js", ".mjs", ".cjs"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/"],
+      "test_priority": "high",
+      "language_server": "typescript-language-server",
+      "package_manager": "npm"
+    },
+    "java": {
+      "full_name": "Java",
+      "category": "common",
+      "extensions": [".java"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/", "/**", "*/"],
+      "test_priority": "high",
+      "language_server": "jdtls",
+      "package_manager": "maven"
+    },
+    "cpp": {
+      "full_name": "C++",
+      "category": "common",
+      "extensions": [".cpp", ".cc", ".cxx", ".hpp", ".hxx", ".h"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/"],
+      "test_priority": "high",
+      "language_server": "clangd",
+      "package_manager": "conan"
+    },
+    "c": {
+      "full_name": "C",
+      "category": "common",
+      "extensions": [".c", ".h"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/"],
+      "test_priority": "high",
+      "language_server": "clangd",
+      "package_manager": "conan"
+    },
+    "typescript": {
+      "full_name": "TypeScript",
+      "category": "web",
+      "extensions": [".ts", ".tsx", ".mts", ".cts"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/"],
+      "test_priority": "high",
+      "language_server": "typescript-language-server",
+      "package_manager": "npm"
+    },
+    "go": {
+      "full_name": "Go",
+      "category": "systems",
+      "extensions": [".go"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/"],
+      "test_priority": "high",
+      "language_server": "gopls",
+      "package_manager": "go"
+    },
+    "rust": {
+      "full_name": "Rust",
+      "category": "systems",
+      "extensions": [".rs"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "/*", "*/", "//!", "/*!", "///", "/**"],
+      "nested_comments": true,
+      "test_priority": "high",
+      "language_server": "rust-analyzer",
+      "package_manager": "cargo"
+    },
+    "ruby": {
+      "full_name": "Ruby",
+      "category": "scripting",
+      "extensions": [".rb", ".rbw"],
+      "has_multiline_comments": true,
+      "comment_styles": ["#", "=begin", "=end"],
+      "test_priority": "high",
+      "language_server": "solargraph",
+      "package_manager": "gem"
+    },
+    "php": {
+      "full_name": "PHP",
+      "category": "web",
+      "extensions": [".php", ".php3", ".php4", ".php5", ".phtml"],
+      "has_multiline_comments": true,
+      "comment_styles": ["//", "#", "/*", "*/"],
+      "test_priority": "high",
+      "language_server": "intelephense",
+      "package_manager": "composer"
+    }
+  },
+  "test_configuration": {
+    "parallel_execution": true,
+    "max_workers": 4,
+    "timeout_per_fixture_ms": 1000,
+    "retry_on_failure": true,
+    "max_retries": 2,
+    "collect_coverage": true,
+    "generate_reports": true,
+    "report_formats": ["json", "html", "junit"],
+    "fail_fast": false
+  },
+  "quality_metrics": {
+    "minimum_pass_rate": 99.5,
+    "maximum_false_positives": 0,
+    "maximum_false_negatives": 0,
+    "performance_regression_threshold": 20,
+    "memory_limit_mb": 100
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "language": "Gnuplot",
+  "category": "domain",
+  "extensions": [
+    ".gp",
+    ".plt"
+  ],
+  "simple": {
+    "filename": "simple.gp",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.gp",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.gp",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

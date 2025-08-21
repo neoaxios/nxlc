@@ -1,0 +1,30 @@
+{
+  "language": "Markdown",
+  "category": "markup",
+  "extensions": [
+    ".md",
+    ".markdown",
+    ".mdown"
+  ],
+  "simple": {
+    "filename": "simple.md",
+    "total": 8,
+    "code": 6,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.md",
+    "total": 35,
+    "code": 29,
+    "comments": 0,
+    "blank": 6
+  },
+  "edge_cases": {
+    "filename": "edge_cases.md",
+    "total": 12,
+    "code": 7,
+    "comments": 0,
+    "blank": 5
+  }
+}

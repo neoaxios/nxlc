@@ -1,0 +1,24 @@
+{
+  "language": "PL/SQL",
+  "extensions": [".sql", ".pls", ".plb"],
+  "files": {
+    "simple.sql": {
+      "total": 15,
+      "code": 12,
+      "comment": 2,
+      "blank": 1
+    },
+    "complex.sql": {
+      "total": 70,
+      "code": 50,
+      "comment": 12,
+      "blank": 8
+    },
+    "edge_cases.sql": {
+      "total": 40,
+      "code": 28,
+      "comment": 8,
+      "blank": 4
+    }
+  }
+}

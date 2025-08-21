@@ -1,0 +1,51 @@
+XSD
+ * Complex test file for WSDL
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ XSD
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  XSD Initialize empty data
+    }
+    
+    process(inputData) {
+        XSD Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        XSD Process each item
+        const result = [];
+        for (const item of inputData) {
+            XSD Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        XSD Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains XSD but it's not a comment"
+pattern = "XSD.*$"  XSD Regex for matching comments
+
+XSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSD
+XSD End of complex test file
+XSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSDXSD

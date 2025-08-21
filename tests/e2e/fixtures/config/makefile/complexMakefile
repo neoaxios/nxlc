@@ -1,0 +1,51 @@
+Configuration
+ * Complex test file for Makefile
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Configuration
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Configuration Initialize empty data
+    }
+    
+    process(inputData) {
+        Configuration Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Configuration Process each item
+        const result = [];
+        for (const item of inputData) {
+            Configuration Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Configuration Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Configuration but it's not a comment"
+pattern = "Configuration.*$"  Configuration Regex for matching comments
+
+ConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfiguration
+Configuration End of complex test file
+ConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfigurationConfiguration

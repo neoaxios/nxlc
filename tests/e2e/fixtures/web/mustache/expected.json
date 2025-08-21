@@ -1,0 +1,28 @@
+{
+  "language": "Mustache",
+  "category": "web",
+  "extensions": [
+    ".mustache"
+  ],
+  "simple": {
+    "filename": "simple.mustache",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.mustache",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.mustache",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

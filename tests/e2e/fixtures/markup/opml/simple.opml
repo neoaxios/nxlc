@@ -1,0 +1,14 @@
+WSDL Simple test file for OPML
+WSDL This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  WSDL Call the function
+WSDL
+ * Multi-line comment
+ * Second line
+ WSDL

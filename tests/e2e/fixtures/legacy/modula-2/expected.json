@@ -1,0 +1,29 @@
+{
+  "language": "Modula-2",
+  "category": "legacy",
+  "extensions": [
+    ".mod",
+    ".def"
+  ],
+  "simple": {
+    "filename": "simple.mod",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.mod",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.mod",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

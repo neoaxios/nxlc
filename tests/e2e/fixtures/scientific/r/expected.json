@@ -1,0 +1,30 @@
+{
+  "language": "R",
+  "category": "scientific",
+  "extensions": [
+    ".r",
+    ".R",
+    ".Rmd"
+  ],
+  "simple": {
+    "filename": "simple.r",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.r",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.r",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

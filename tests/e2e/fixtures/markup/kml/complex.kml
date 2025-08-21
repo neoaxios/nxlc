@@ -1,0 +1,51 @@
+Atom
+ * Complex test file for KML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Atom
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Atom Initialize empty data
+    }
+    
+    process(inputData) {
+        Atom Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Atom Process each item
+        const result = [];
+        for (const item of inputData) {
+            Atom Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Atom Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Atom but it's not a comment"
+pattern = "Atom.*$"  Atom Regex for matching comments
+
+AtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtom
+Atom End of complex test file
+AtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtomAtom

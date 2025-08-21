@@ -1,0 +1,28 @@
+{
+  "language": "Creole",
+  "category": "markup",
+  "extensions": [
+    ".creole"
+  ],
+  "simple": {
+    "filename": "simple.creole",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.creole",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.creole",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

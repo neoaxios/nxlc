@@ -9,17 +9,17 @@ import tempfile
 import unittest
 from pathlib import Path
 
-# Add parent directory to path to import ulc
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add parent directory to path to import nxlc
+sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 try:
-    import ulc
+    import nxlc
 except ImportError:
-    # Skip tests if ulc module can't be imported
-    ulc = None
+    # Skip tests if nxlc module can't be imported
+    nxlc = None
 
 
-@unittest.skipIf(ulc is None, "ulc module not available")
+@unittest.skipIf(nxlc is None, "nxlc module not available")
 class TestULC(unittest.TestCase):
     """Test basic ULC functionality"""
 
@@ -35,14 +35,14 @@ class TestULC(unittest.TestCase):
 
     def test_imports(self):
         """Test that ULC can be imported"""
-        self.assertIsNotNone(ulc)
-        self.assertTrue(hasattr(ulc, 'main'))
-        self.assertTrue(hasattr(ulc, 'LineCounter'))
-        self.assertTrue(hasattr(ulc, 'LanguageDefinitions'))
+        self.assertIsNotNone(nxlc)
+        self.assertTrue(hasattr(nxlc, 'main'))
+        self.assertTrue(hasattr(nxlc, 'LineCounter'))
+        self.assertTrue(hasattr(nxlc, 'LanguageDefinitions'))
 
     def test_language_definitions(self):
         """Test LanguageDefinitions class"""
-        lang_defs = ulc.LanguageDefinitions()
+        lang_defs = nxlc.LanguageDefinitions()
         
         # Test that we have expected language extensions
         self.assertIn('Python', lang_defs.LANGUAGE_EXTENSIONS)
@@ -54,14 +54,14 @@ class TestULC(unittest.TestCase):
 
     def test_line_counter_init(self):
         """Test LineCounter initialization"""
-        counter = ulc.LineCounter()
+        counter = nxlc.LineCounter()
         self.assertIsNotNone(counter.platform)
         self.assertIsNotNone(counter.language_defs)
         self.assertIsInstance(counter.file_line_counts, dict)
 
     def test_detect_language_basic(self):
         """Test basic language detection"""
-        counter = ulc.LineCounter()
+        counter = nxlc.LineCounter()
         
         # Test Python file detection
         py_file = self.temp_path / "test.py"
@@ -75,7 +75,7 @@ class TestULC(unittest.TestCase):
 
     def test_count_lines_basic(self):
         """Test basic line counting"""
-        counter = ulc.LineCounter()
+        counter = nxlc.LineCounter()
         
         # Create a test Python file
         test_file = self.temp_path / "test.py"
@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
     def test_analyze_directory_basic(self):
         """Test basic directory analysis"""
-        counter = ulc.LineCounter()
+        counter = nxlc.LineCounter()
         
         # Create test files
         (self.temp_path / "test.py").write_text("print('python')")
@@ -136,33 +136,33 @@ if __name__ == "__main__":
         """Test security validation functions"""
         # Test linguist path validation
         with self.assertRaises(ValueError):
-            ulc.validate_linguist_path("bad; rm -rf /")
+            nxlc.validate_linguist_path("bad; rm -rf /")
             
         with self.assertRaises(ValueError):
-            ulc.validate_linguist_path("../../../etc/passwd")
+            nxlc.validate_linguist_path("../../../etc/passwd")
             
         # Valid absolute path should not raise
         try:
-            ulc.validate_linguist_path("/usr/bin/linguist")
+            nxlc.validate_linguist_path("/usr/bin/linguist")
         except ValueError:
             self.fail("Valid absolute path should not raise ValueError")
 
     def test_colors_class(self):
         """Test Colors class functionality"""
         # Test enabled colors
-        colors_on = ulc.Colors(enabled=True)
+        colors_on = nxlc.Colors(enabled=True)
         self.assertTrue(len(colors_on.HEADER) > 0)
         self.assertTrue(len(colors_on.RESET) > 0)
         
         # Test disabled colors
-        colors_off = ulc.Colors(enabled=False)
+        colors_off = nxlc.Colors(enabled=False)
         self.assertEqual(colors_off.HEADER, '')
         self.assertEqual(colors_off.RESET, '')
 
     def test_platform_adapters(self):
         """Test platform adapter functionality"""
-        adapter = ulc.get_platform_adapter()
-        self.assertIsInstance(adapter, ulc.PlatformAdapter)
+        adapter = nxlc.get_platform_adapter()
+        self.assertIsInstance(adapter, nxlc.PlatformAdapter)
         
         # Test platform name
         platform_name = adapter.get_platform_name()
@@ -177,9 +177,10 @@ class TestULCCLI(unittest.TestCase):
         import subprocess
         import sys
         
-        script_path = Path(__file__).parent.parent / "ulc.py"
+        # Test by running nxlc.py directly from src directory
+        script_path = Path(__file__).parent.parent / "src" / "nxlc.py"
         if not script_path.exists():
-            self.skipTest("ulc.py not found")
+            self.skipTest("nxlc.py not found in src directory")
             
         result = subprocess.run(
             [sys.executable, str(script_path), "--version"],
@@ -196,9 +197,10 @@ class TestULCCLI(unittest.TestCase):
         import subprocess
         import sys
         
-        script_path = Path(__file__).parent.parent / "ulc.py"
+        # Test by running nxlc.py directly from src directory
+        script_path = Path(__file__).parent.parent / "src" / "nxlc.py"
         if not script_path.exists():
-            self.skipTest("ulc.py not found")
+            self.skipTest("nxlc.py not found in src directory")
             
         result = subprocess.run(
             [sys.executable, str(script_path), "--help"],

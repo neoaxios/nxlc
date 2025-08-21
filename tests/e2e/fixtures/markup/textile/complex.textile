@@ -1,0 +1,51 @@
+HAML
+ * Complex test file for Textile
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ HAML
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  HAML Initialize empty data
+    }
+    
+    process(inputData) {
+        HAML Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        HAML Process each item
+        const result = [];
+        for (const item of inputData) {
+            HAML Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        HAML Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains HAML but it's not a comment"
+pattern = "HAML.*$"  HAML Regex for matching comments
+
+HAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAML
+HAML End of complex test file
+HAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAMLHAML

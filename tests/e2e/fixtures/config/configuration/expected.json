@@ -1,0 +1,30 @@
+{
+  "language": "Configuration",
+  "category": "config",
+  "extensions": [
+    ".conf",
+    ".config",
+    ".cfg"
+  ],
+  "simple": {
+    "filename": "simple.conf",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.conf",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.conf",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

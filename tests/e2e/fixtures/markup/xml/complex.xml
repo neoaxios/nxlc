@@ -1,0 +1,51 @@
+JSON
+ * Complex test file for XML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ JSON
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  JSON Initialize empty data
+    }
+    
+    process(inputData) {
+        JSON Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        JSON Process each item
+        const result = [];
+        for (const item of inputData) {
+            JSON Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        JSON Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains JSON but it's not a comment"
+pattern = "JSON.*$"  JSON Regex for matching comments
+
+JSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSON
+JSON End of complex test file
+JSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSONJSON

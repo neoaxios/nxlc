@@ -1,0 +1,24 @@
+{
+  "language": "Visual Basic",
+  "extensions": [".vb", ".vbs"],
+  "files": {
+    "simple.vb": {
+      "total": 14,
+      "code": 10,
+      "comment": 2,
+      "blank": 2
+    },
+    "complex.vb": {
+      "total": 51,
+      "code": 35,
+      "comment": 8,
+      "blank": 8
+    },
+    "edge_cases.vb": {
+      "total": 22,
+      "code": 15,
+      "comment": 4,
+      "blank": 3
+    }
+  }
+}

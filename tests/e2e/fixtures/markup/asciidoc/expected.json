@@ -1,0 +1,29 @@
+{
+  "language": "AsciiDoc",
+  "category": "markup",
+  "extensions": [
+    ".adoc",
+    ".asciidoc"
+  ],
+  "simple": {
+    "filename": "simple.adoc",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.adoc",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.adoc",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

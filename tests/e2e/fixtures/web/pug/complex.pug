@@ -1,0 +1,58 @@
+Mustache
+ * Complex test file for Pug
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Mustache
+
+class DataProcessor:
+    """
+    A class for processing data.
+    
+    This demonstrates multi-line doc strings.
+    """
+    
+    def __init__(self, config):
+        """Initialize with config."""
+        self.config = config
+        self.data = []  Mustache Initialize empty data
+    
+    def process(self, input_data):
+        """
+        Process input data.
+        
+        Args:
+            input_data: The data to process
+        """
+        Mustache Check if data is valid
+        if not input_data:
+            return None
+        
+        Mustache Process each item
+        result = []
+        for item in input_data:
+            Mustache Skip invalid items
+            if self.validate(item):
+                processed = self.transform(item)
+                result.append(processed)
+        
+        return result
+    
+    def validate(self, item):
+        """Validate an item."""
+        return item is not None
+    
+    def transform(self, item):
+        """Transform an item."""
+        Mustache Apply transformation
+        return item.upper() if isinstance(item, str) else item
+
+message = "This string contains Mustache but it's not a comment"
+pattern = "Mustache.*$"  Mustache Regex for matching comments
+
+MustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustache
+Mustache End of complex test file
+MustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustacheMustache

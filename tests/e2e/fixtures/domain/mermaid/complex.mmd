@@ -1,0 +1,51 @@
+Thrift
+ * Complex test file for Mermaid
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Thrift
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Thrift Initialize empty data
+    }
+    
+    process(inputData) {
+        Thrift Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Thrift Process each item
+        const result = [];
+        for (const item of inputData) {
+            Thrift Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Thrift Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Thrift but it's not a comment"
+pattern = "Thrift.*$"  Thrift Regex for matching comments
+
+ThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThrift
+Thrift End of complex test file
+ThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThriftThrift

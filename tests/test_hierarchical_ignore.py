@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive test suite for hierarchical .ulcignore support.
+Comprehensive test suite for hierarchical .nxlcignore support.
 Tests all components end-to-end without mocks.
 """
 
@@ -16,15 +16,11 @@ import time
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
-sys.path.insert(0, str(Path(__file__).parent.parent / 'src' / 'ulc'))
 
-# Import from the main ulc module
-import ulc
-from ulc import LineCounter
-
-# Import from hierarchical_ignore module
-import hierarchical_ignore
-from hierarchical_ignore import (
+# Import from the main nxlc module
+import nxlc
+from nxlc import (
+    LineCounter,
     PatternMatcher,
     CacheStrategy,
     LRUCacheStrategy,
@@ -40,7 +36,7 @@ from hierarchical_ignore import (
 # TEST INFRASTRUCTURE
 # ============================================================================
 
-class TestFileSystem:
+class FileSystem:
     """Utility class for creating test file system structures."""
     
     def __init__(self, base_dir: Path):
@@ -63,10 +59,10 @@ class TestFileSystem:
         self.created_dirs.append(full_path)
         return full_path
     
-    def create_ulcignore(self, dir_path: str, patterns: List[str]) -> Path:
-        """Create a .ulcignore file with given patterns."""
+    def create_nxlcignore(self, dir_path: str, patterns: List[str]) -> Path:
+        """Create a .nxlcignore file with given patterns."""
         content = "\n".join(patterns)
-        return self.create_file(f"{dir_path}/.ulcignore", content)
+        return self.create_file(f"{dir_path}/.nxlcignore", content)
     
     def create_symlink(self, source: str, target: str) -> Path:
         """Create a symbolic link."""
@@ -88,9 +84,9 @@ class HierarchicalIgnoreTestBase(unittest.TestCase):
     
     def setUp(self):
         """Set up test environment."""
-        self.test_dir = tempfile.mkdtemp(prefix="ulc_test_")
+        self.test_dir = tempfile.mkdtemp(prefix="nxlc_test_")
         self.test_path = Path(self.test_dir)
-        self.fs = TestFileSystem(self.test_path)
+        self.fs = FileSystem(self.test_path)
         self.counter = LineCounter()
         
     def tearDown(self):
@@ -132,7 +128,7 @@ class HierarchicalIgnoreTestBase(unittest.TestCase):
         """Analyze directory with hierarchical ignore patterns."""
         if patterns_by_dir:
             for dir_path, patterns in patterns_by_dir.items():
-                self.fs.create_ulcignore(dir_path, patterns)
+                self.fs.create_nxlcignore(dir_path, patterns)
         
         # Check if hierarchical support is available
         if not hasattr(self.counter, 'analyze_directory'):
@@ -211,7 +207,7 @@ class TestIgnoreFileReader(HierarchicalIgnoreTestBase):
     
     def test_read_ignore_file_basic(self):
         """Test reading basic ignore file."""
-        ignore_file = self.fs.create_file(".ulcignore", "*.txt\n# Comment\n*.log\n\n*.tmp")
+        ignore_file = self.fs.create_file(".nxlcignore", "*.txt\n# Comment\n*.log\n\n*.tmp")
         
         patterns = IgnoreFileReader.read_ignore_file(ignore_file)
         
@@ -228,7 +224,7 @@ class TestIgnoreFileReader(HierarchicalIgnoreTestBase):
 # Another comment
   *.tmp  
 """
-        ignore_file = self.fs.create_file(".ulcignore", content)
+        ignore_file = self.fs.create_file(".nxlcignore", content)
         
         patterns = IgnoreFileReader.read_ignore_file(ignore_file)
         
@@ -238,7 +234,7 @@ class TestIgnoreFileReader(HierarchicalIgnoreTestBase):
         """Test file size limit enforcement."""
         # Create a file larger than 1MB
         large_content = "*.txt\n" * 200000  # About 1.2MB
-        ignore_file = self.fs.create_file(".ulcignore", large_content)
+        ignore_file = self.fs.create_file(".nxlcignore", large_content)
         
         patterns = IgnoreFileReader.read_ignore_file(ignore_file, max_size=1024*1024)
         
@@ -257,7 +253,7 @@ class TestPatternAdapter(HierarchicalIgnoreTestBase):
         """Test adapter's process_ignore_file method."""
         adapter = LineCounterPatternAdapter(self.counter)
         
-        ignore_file = self.fs.create_file(".ulcignore", "*.txt\n*.log")
+        ignore_file = self.fs.create_file(".nxlcignore", "*.txt\n*.log")
         patterns = adapter.process_ignore_file(ignore_file)
         
         self.assertEqual(patterns, ["*.txt", "*.log"])
@@ -280,7 +276,7 @@ class TestIgnoreContext(HierarchicalIgnoreTestBase):
         """Test basic ignore context functionality."""
         self.fs.create_file("test.txt", "content")
         self.fs.create_file("test.py", "code")
-        self.fs.create_ulcignore(".", ["*.txt"])
+        self.fs.create_nxlcignore(".", ["*.txt"])
         
         adapter = LineCounterPatternAdapter(self.counter)
         context = IgnoreContext(
@@ -299,9 +295,9 @@ class TestIgnoreContext(HierarchicalIgnoreTestBase):
         self.fs.create_file("src/debug.log", "log")
         
         # Root ignores *.txt
-        self.fs.create_ulcignore(".", ["*.txt"])
+        self.fs.create_nxlcignore(".", ["*.txt"])
         # src ignores *.log
-        self.fs.create_ulcignore("src", ["*.log"])
+        self.fs.create_nxlcignore("src", ["*.log"])
         
         adapter = LineCounterPatternAdapter(self.counter)
         
@@ -326,7 +322,7 @@ class TestIgnoreContext(HierarchicalIgnoreTestBase):
     def test_ignore_context_caching(self):
         """Test that ignore context caches results."""
         self.fs.create_file("test.txt", "content")
-        self.fs.create_ulcignore(".", ["*.txt"])
+        self.fs.create_nxlcignore(".", ["*.txt"])
         
         adapter = LineCounterPatternAdapter(self.counter)
         cache = LRUCacheStrategy(max_size=10)
@@ -350,10 +346,10 @@ class TestIgnoreContext(HierarchicalIgnoreTestBase):
 # ============================================================================
 
 class TestHierarchicalIgnoreIntegration(HierarchicalIgnoreTestBase):
-    """Integration tests for hierarchical .ulcignore functionality."""
+    """Integration tests for hierarchical .nxlcignore functionality."""
     
-    def test_single_root_ulcignore(self):
-        """Test with single root .ulcignore file."""
+    def test_single_root_nxlcignore(self):
+        """Test with single root .nxlcignore file."""
         self.create_test_project()
         
         # Ignore all txt files and build directory
@@ -366,23 +362,28 @@ class TestHierarchicalIgnoreIntegration(HierarchicalIgnoreTestBase):
         # Should exclude test.txt and build/* files
         self.assertEqual(self.count_files_in_results(results), 9)  # 12 - 1 txt - 2 build files
         
-    @unittest.skip("Negation patterns not yet implemented")
-    def test_nested_ulcignore_override(self):
-        """Test that nested .ulcignore can override parent patterns."""
+    def test_nested_nxlcignore_override(self):
+        """Test that nested .nxlcignore can provide additional patterns."""
         self.create_test_project()
         
-        # Root ignores all .py files
-        # src allows .py files again
+        # Create additional test files
+        self.fs.create_file("debug.log", "log file\n")
+        self.fs.create_file("src/debug.log", "src log file\n")
+        self.fs.create_file("src/temp.bak", "backup file\n")
+        
+        # Root ignores log files
+        # src ignores backup files (additional patterns)
         patterns = {
-            ".": ["*.py"],
-            "src": ["!*.py"]  # Negation pattern (if supported)
+            ".": ["*.log"],
+            "src": ["*.bak"]  # Additional pattern in nested directory
         }
         
         results = self.analyze_with_hierarchical(patterns)
         
-        # This tests the precedence rules
-        python_count = self.get_language_file_count(results, "Python")
-        self.assertGreater(python_count, 0)  # Some Python files should be included
+        # Both .log and .bak files in src should be ignored
+        # Only the root debug.log should be ignored from root patterns
+        text_count = self.get_language_file_count(results, "Text")
+        self.assertEqual(text_count, 1)  # Only test.txt from create_test_project should remain
         
     def test_deep_hierarchy(self):
         """Test deeply nested directory hierarchy."""
@@ -393,7 +394,7 @@ class TestHierarchicalIgnoreIntegration(HierarchicalIgnoreTestBase):
             self.fs.create_file(f"{path}/ignore{i}.txt", f"Ignore {i}\n")
             
             # Each level ignores its own txt files
-            self.fs.create_ulcignore(path, [f"ignore{i}.txt"])
+            self.fs.create_nxlcignore(path, [f"ignore{i}.txt"])
         
         results = self.analyze_with_hierarchical()
         
@@ -458,7 +459,7 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
     def test_symlink_handling(self):
         """Test handling of symbolic links."""
         self.fs.create_file("target/file.py", "print('target')\n")
-        self.fs.create_ulcignore("target", ["*.log"])
+        self.fs.create_nxlcignore("target", ["*.log"])
         
         # Create symlink to directory
         self.fs.create_symlink("target", "link")
@@ -472,13 +473,13 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         self.assertIsNotNone(results)
         
     @unittest.skipIf(platform.system() == 'Windows', "Symlinks require admin on Windows")
-    def test_symlinked_ulcignore(self):
-        """Test symlinked .ulcignore files."""
+    def test_symlinked_nxlcignore(self):
+        """Test symlinked .nxlcignore files."""
         # Create actual ignore file
         self.fs.create_file("configs/ignore_rules", "*.txt\n*.log")
         
-        # Symlink it as .ulcignore
-        link_path = self.test_path / ".ulcignore"
+        # Symlink it as .nxlcignore
+        link_path = self.test_path / ".nxlcignore"
         link_path.symlink_to(self.test_path / "configs" / "ignore_rules")
         
         self.fs.create_file("test.txt", "text")
@@ -486,7 +487,7 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         
         results = self.analyze_with_hierarchical()
         
-        # Should respect symlinked .ulcignore
+        # Should respect symlinked .nxlcignore
         text_count = self.get_language_file_count(results, "Text")
         self.assertEqual(text_count, 0)
         
@@ -497,7 +498,7 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         self.fs.create_file("тест.txt", "Русский текст\n")
         self.fs.create_file("test_émoji_😀.log", "log content\n")
         
-        # Create .ulcignore with Unicode patterns
+        # Create .nxlcignore with Unicode patterns
         patterns = {
             ".": ["*😀*", "тест.*"]
         }
@@ -508,29 +509,29 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         python_count = self.get_language_file_count(results, "Python")
         self.assertGreater(python_count, 0)  # 测试.py should be included
         
-    @unittest.skipIf(platform.system() != 'Windows', "Case sensitivity test for Windows")
-    def test_case_insensitive_windows(self):
-        """Test case-insensitive matching on Windows."""
-        self.fs.create_file("Test.txt", "content")
-        self.fs.create_file("test.TXT", "content")  # May fail on case-insensitive FS
-        
-        patterns = {
-            ".": ["*.txt"]
-        }
-        
-        results = self.analyze_with_hierarchical(patterns)
-        
-        # On Windows, both should be ignored regardless of case
-        text_count = self.get_language_file_count(results, "Text")
-        self.assertEqual(text_count, 0)
+    if platform.system() == 'Windows':
+        def test_case_insensitive_windows(self):
+            """Test case-insensitive matching on Windows."""
+            self.fs.create_file("Test.txt", "content")
+            self.fs.create_file("test.TXT", "content")  # May fail on case-insensitive FS
+            
+            patterns = {
+                ".": ["*.txt"]
+            }
+            
+            results = self.analyze_with_hierarchical(patterns)
+            
+            # On Windows, both should be ignored regardless of case
+            text_count = self.get_language_file_count(results, "Text")
+            self.assertEqual(text_count, 0)
         
     def test_large_ignore_file(self):
-        """Test handling of large .ulcignore files."""
-        # Create .ulcignore with many patterns
+        """Test handling of large .nxlcignore files."""
+        # Create .nxlcignore with many patterns
         patterns = [f"pattern_{i}.txt" for i in range(10000)]
         
         start_time = time.time()
-        self.fs.create_ulcignore(".", patterns)
+        self.fs.create_nxlcignore(".", patterns)
         
         # Create some files
         for i in range(100):
@@ -545,11 +546,11 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         python_count = self.get_language_file_count(results, "Python")
         self.assertEqual(python_count, 100)
         
-    def test_empty_ulcignore(self):
-        """Test empty .ulcignore files."""
+    def test_empty_nxlcignore(self):
+        """Test empty .nxlcignore files."""
         self.create_test_project()
         
-        # First test without any .ulcignore files
+        # First test without any .nxlcignore files
         results_without = self.counter.analyze_directory(
             directory=self.test_path,
             verbose=False,
@@ -557,17 +558,17 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         )
         base_count = self.count_files_in_results(results_without)
         
-        # Create empty .ulcignore files
-        self.fs.create_ulcignore(".", [])
-        self.fs.create_ulcignore("src", [])
+        # Create empty .nxlcignore files
+        self.fs.create_nxlcignore(".", [])
+        self.fs.create_nxlcignore("src", [])
         
         results = self.analyze_with_hierarchical()
         
-        # Empty .ulcignore files shouldn't change the file count
-        # (except possibly adding the .ulcignore files themselves if they're counted)
+        # Empty .nxlcignore files shouldn't change the file count
+        # (except possibly adding the .nxlcignore files themselves if they're counted)
         actual_count = self.count_files_in_results(results)
         
-        # The count should be the same as base_count since empty .ulcignore 
+        # The count should be the same as base_count since empty .nxlcignore 
         # files don't exclude anything
         self.assertEqual(actual_count, base_count)
         
@@ -602,7 +603,7 @@ class TestPerformanceAndSecurity(HierarchicalIgnoreTestBase):
         for i in range(100):
             self.fs.create_file(f"file_{i}.py", f"# File {i}\n")
         
-        self.fs.create_ulcignore(".", ["file_5*.py"])
+        self.fs.create_nxlcignore(".", ["file_5*.py"])
         
         # First run (cold cache)
         start1 = time.time()
@@ -621,11 +622,11 @@ class TestPerformanceAndSecurity(HierarchicalIgnoreTestBase):
         )
         
     def test_dos_prevention_file_size(self):
-        """Test DoS prevention for large .ulcignore files."""
-        # Create a .ulcignore file larger than 1MB
+        """Test DoS prevention for large .nxlcignore files."""
+        # Create a .nxlcignore file larger than 1MB
         large_content = "pattern\n" * 200000  # ~1.4MB
         
-        with open(self.test_path / ".ulcignore", 'w') as f:
+        with open(self.test_path / ".nxlcignore", 'w') as f:
             f.write(large_content)
         
         self.fs.create_file("test.py", "code")
@@ -663,7 +664,7 @@ class TestPerformanceAndSecurity(HierarchicalIgnoreTestBase):
             path = f"{path}/dir{i}"
             self.fs.create_dir(path)
             self.fs.create_file(f"{path}/file.py", "code")
-            self.fs.create_ulcignore(path, [f"ignore{i}.txt"])
+            self.fs.create_nxlcignore(path, [f"ignore{i}.txt"])
         
         # Should handle deep nesting without excessive memory use
         results = self.analyze_with_hierarchical()
@@ -710,25 +711,25 @@ class TestFactoryPattern(HierarchicalIgnoreTestBase):
     """Test IgnoreContextFactory."""
     
     def test_factory_creates_context_when_needed(self):
-        """Test that factory only creates context when .ulcignore exists."""
+        """Test that factory only creates context when .nxlcignore exists."""
         adapter = LineCounterPatternAdapter(self.counter)
         factory = IgnoreContextFactory(pattern_matcher=adapter)
         
-        # No .ulcignore file
+        # No .nxlcignore file
         context1 = factory.create_context(self.test_path)
         self.assertIsNone(context1)
         
-        # Create .ulcignore file
-        self.fs.create_ulcignore(".", ["*.txt"])
+        # Create .nxlcignore file
+        self.fs.create_nxlcignore(".", ["*.txt"])
         
         context2 = factory.create_context(self.test_path)
         self.assertIsNotNone(context2)
         
     def test_factory_with_parent_context(self):
         """Test factory creating child context with parent."""
-        self.fs.create_ulcignore(".", ["*.txt"])
+        self.fs.create_nxlcignore(".", ["*.txt"])
         self.fs.create_dir("src")
-        self.fs.create_ulcignore("src", ["*.log"])
+        self.fs.create_nxlcignore("src", ["*.log"])
         
         adapter = LineCounterPatternAdapter(self.counter)
         factory = IgnoreContextFactory(pattern_matcher=adapter)
@@ -756,7 +757,7 @@ class TestFactoryPattern(HierarchicalIgnoreTestBase):
             case_insensitive=True
         )
         
-        self.fs.create_ulcignore(".", ["*.txt"])
+        self.fs.create_nxlcignore(".", ["*.txt"])
         context = factory.create_context(self.test_path)
         
         self.assertIsNotNone(context)
@@ -881,7 +882,7 @@ class TestEndToEnd(HierarchicalIgnoreTestBase):
         self.assertGreater(self.get_language_file_count(results, "Markdown"), 0)
         
     def test_hierarchical_patterns(self):
-        """Test hierarchical .ulcignore patterns."""
+        """Test hierarchical .nxlcignore patterns."""
         self.create_test_project()
         
         # Add hierarchical patterns

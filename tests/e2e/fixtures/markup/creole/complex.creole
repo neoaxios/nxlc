@@ -1,0 +1,51 @@
+Slim
+ * Complex test file for Creole
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Slim
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Slim Initialize empty data
+    }
+    
+    process(inputData) {
+        Slim Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Slim Process each item
+        const result = [];
+        for (const item of inputData) {
+            Slim Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Slim Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Slim but it's not a comment"
+pattern = "Slim.*$"  Slim Regex for matching comments
+
+SlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlim
+Slim End of complex test file
+SlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlimSlim

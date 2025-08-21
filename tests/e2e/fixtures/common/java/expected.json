@@ -1,0 +1,28 @@
+{
+  "language": "Java",
+  "category": "common",
+  "extensions": [
+    ".java"
+  ],
+  "simple": {
+    "filename": "simple.java",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.java",
+    "total": 54,
+    "code": 45,
+    "comments": 0,
+    "blank": 9
+  },
+  "edge_cases": {
+    "filename": "edge_cases.java",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

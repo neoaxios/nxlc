@@ -1,0 +1,28 @@
+{
+  "language": "TeX",
+  "category": "markup",
+  "extensions": [
+    ".tex"
+  ],
+  "simple": {
+    "filename": "simple.tex",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.tex",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.tex",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

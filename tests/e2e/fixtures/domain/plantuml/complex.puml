@@ -1,0 +1,51 @@
+Protocol Buffers
+ * Complex test file for PlantUML
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ Protocol Buffers
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  Protocol Buffers Initialize empty data
+    }
+    
+    process(inputData) {
+        Protocol Buffers Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        Protocol Buffers Process each item
+        const result = [];
+        for (const item of inputData) {
+            Protocol Buffers Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        Protocol Buffers Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains Protocol Buffers but it's not a comment"
+pattern = "Protocol Buffers.*$"  Protocol Buffers Regex for matching comments
+
+Protocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol Buffers
+Protocol Buffers End of complex test file
+Protocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol BuffersProtocol Buffers

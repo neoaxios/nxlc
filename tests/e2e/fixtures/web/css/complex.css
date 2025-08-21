@@ -1,0 +1,51 @@
+YAML
+ * Complex test file for CSS
+ * 
+ * This file tests:
+ * - Nested comments (if supported)
+ * - String literals with comment-like content
+ * - Mixed code and comments
+ * - Various comment styles
+ YAML
+
+class DataProcessor {
+    constructor(config) {
+        this.config = config;
+        this.data = [];  YAML Initialize empty data
+    }
+    
+    process(inputData) {
+        YAML Check if data is valid
+        if (!inputData) {
+            return null;
+        }
+        
+        YAML Process each item
+        const result = [];
+        for (const item of inputData) {
+            YAML Skip invalid items
+            if (this.validate(item)) {
+                const processed = this.transform(item);
+                result.push(processed);
+            }
+        }
+        
+        return result;
+    }
+    
+    validate(item) {
+        return item !== null && item !== undefined;
+    }
+    
+    transform(item) {
+        YAML Apply transformation
+        return typeof item === 'string' ? item.toUpperCase() : item;
+    }
+}
+
+message = "This string contains YAML but it's not a comment"
+pattern = "YAML.*$"  YAML Regex for matching comments
+
+YAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAML
+YAML End of complex test file
+YAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAMLYAML

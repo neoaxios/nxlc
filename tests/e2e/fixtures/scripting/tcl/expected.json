@@ -1,0 +1,29 @@
+{
+  "language": "TCL",
+  "category": "scripting",
+  "extensions": [
+    ".tcl",
+    ".tk"
+  ],
+  "simple": {
+    "filename": "simple.tcl",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.tcl",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.tcl",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

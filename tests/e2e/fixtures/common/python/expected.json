@@ -1,0 +1,30 @@
+{
+  "language": "Python",
+  "category": "common",
+  "extensions": [
+    ".py",
+    ".pyw",
+    ".pyx"
+  ],
+  "simple": {
+    "filename": "simple.py",
+    "total": 13,
+    "code": 11,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.py",
+    "total": 62,
+    "code": 38,
+    "comments": 12,
+    "blank": 12
+  },
+  "edge_cases": {
+    "filename": "edge_cases.py",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

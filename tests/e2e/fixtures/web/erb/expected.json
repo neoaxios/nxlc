@@ -1,0 +1,29 @@
+{
+  "language": "ERB",
+  "category": "web",
+  "extensions": [
+    ".erb",
+    ".rhtml"
+  ],
+  "simple": {
+    "filename": "simple.erb",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.erb",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.erb",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

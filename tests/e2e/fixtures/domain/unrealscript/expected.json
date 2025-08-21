@@ -1,0 +1,28 @@
+{
+  "language": "UnrealScript",
+  "category": "domain",
+  "extensions": [
+    ".uc"
+  ],
+  "simple": {
+    "filename": "simple.uc",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.uc",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.uc",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

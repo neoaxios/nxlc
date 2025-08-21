@@ -1,0 +1,29 @@
+{
+  "language": "YAML",
+  "category": "markup",
+  "extensions": [
+    ".yaml",
+    ".yml"
+  ],
+  "simple": {
+    "filename": "simple.yaml",
+    "total": 13,
+    "code": 11,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.yaml",
+    "total": 58,
+    "code": 47,
+    "comments": 0,
+    "blank": 11
+  },
+  "edge_cases": {
+    "filename": "edge_cases.yaml",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

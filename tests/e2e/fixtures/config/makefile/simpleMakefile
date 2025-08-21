@@ -1,0 +1,14 @@
+Configuration Simple test file for Makefile
+Configuration This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  Configuration Call the function
+Configuration
+ * Multi-line comment
+ * Second line
+ Configuration

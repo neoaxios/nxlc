@@ -1,0 +1,29 @@
+{
+  "language": "Oberon",
+  "category": "legacy",
+  "extensions": [
+    ".ob",
+    ".ob2"
+  ],
+  "simple": {
+    "filename": "simple.ob",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.ob",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.ob",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

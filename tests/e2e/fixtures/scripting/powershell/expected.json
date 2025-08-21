@@ -1,0 +1,30 @@
+{
+  "language": "PowerShell",
+  "category": "scripting",
+  "extensions": [
+    ".ps1",
+    ".psm1",
+    ".psd1"
+  ],
+  "simple": {
+    "filename": "simple.ps1",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.ps1",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.ps1",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

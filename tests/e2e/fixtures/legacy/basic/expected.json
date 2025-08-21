@@ -1,0 +1,29 @@
+{
+  "language": "BASIC",
+  "category": "legacy",
+  "extensions": [
+    ".bas",
+    ".basic"
+  ],
+  "simple": {
+    "filename": "simple.bas",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.bas",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.bas",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

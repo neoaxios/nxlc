@@ -1,0 +1,30 @@
+{
+  "language": "Pascal",
+  "category": "legacy",
+  "extensions": [
+    ".pas",
+    ".pp",
+    ".inc"
+  ],
+  "simple": {
+    "filename": "simple.pas",
+    "total": 14,
+    "code": 2,
+    "comments": 10,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.pas",
+    "total": 51,
+    "code": 31,
+    "comments": 12,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.pas",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

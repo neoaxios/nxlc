@@ -1,0 +1,30 @@
+{
+  "language": "FORTRAN",
+  "category": "legacy",
+  "extensions": [
+    ".f",
+    ".for",
+    ".f77"
+  ],
+  "simple": {
+    "filename": "simple.f",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.f",
+    "total": 51,
+    "code": 39,
+    "comments": 4,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.f",
+    "total": 22,
+    "code": 13,
+    "comments": 1,
+    "blank": 8
+  }
+}

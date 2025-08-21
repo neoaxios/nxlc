@@ -1,0 +1,30 @@
+{
+  "language": "PHP",
+  "category": "common",
+  "extensions": [
+    ".php",
+    ".php3",
+    ".php4"
+  ],
+  "simple": {
+    "filename": "simple.php",
+    "total": 14,
+    "code": 12,
+    "comments": 0,
+    "blank": 2
+  },
+  "complex": {
+    "filename": "complex.php",
+    "total": 51,
+    "code": 43,
+    "comments": 0,
+    "blank": 8
+  },
+  "edge_cases": {
+    "filename": "edge_cases.php",
+    "total": 22,
+    "code": 14,
+    "comments": 0,
+    "blank": 8
+  }
+}

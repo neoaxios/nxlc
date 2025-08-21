@@ -1,0 +1,14 @@
+JSON Simple test file for XML
+JSON This tests basic line counting
+
+function main() {
+    var x = 42;
+    var y = x * 2;
+    return y;
+}
+
+result = main()  JSON Call the function
+JSON
+ * Multi-line comment
+ * Second line
+ JSON
