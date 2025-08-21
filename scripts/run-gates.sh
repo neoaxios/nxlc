@@ -147,14 +147,14 @@ fi
 if [ "$QUICK_MODE" = false ]; then
     # 1. Unit Tests
     print_header "Unit Tests"
-    run_gate "Unit Tests" "python3 -m pytest tests/test_*.py $PYTEST_PARALLEL -v --tb=short" || true
+    run_gate "Unit Tests" "python3 -m pytest tests/test_*.py $PYTEST_PARALLEL -v --tb=short --strict" || true
 fi
 
 # 2. E2E Tests (always run - this is the most important gate)
 print_header "E2E Tests"
 if [ -f "tests/e2e/test_e2e_line_counting.py" ]; then
     # E2E tests handle fixtures individually, so parallelization helps significantly
-    run_gate "E2E Line Counting Tests" "python3 -m pytest tests/e2e/test_e2e_line_counting.py $PYTEST_PARALLEL -v --tb=short" || true
+    run_gate "E2E Line Counting Tests" "python3 -m pytest tests/e2e/test_e2e_line_counting.py $PYTEST_PARALLEL -v --tb=short --strict" || true
 else
     echo -e "${YELLOW}⚠ E2E tests not found, skipping...${NC}"
 fi
@@ -162,7 +162,7 @@ fi
 # 3. All Tests Combined (skip in quick mode)
 if [ "$QUICK_MODE" = false ]; then
     print_header "All Tests"
-    run_gate "All Tests Combined" "python3 -m pytest tests/ $PYTEST_PARALLEL -v --tb=short --no-header -q" || true
+    run_gate "All Tests Combined" "python3 -m pytest tests/ $PYTEST_PARALLEL -v --tb=short --no-header -q --strict" || true
 fi
 
 # 4. Syntax Check
