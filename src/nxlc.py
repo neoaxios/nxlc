@@ -810,15 +810,15 @@ class LineCounter:
         filename = filepath.name
         
         # Handle Makefiles
-        if filename in {'Makefile', 'makefile', 'GNUmakefile'} or filename.endswith('.mk'):
+        if filename in {'Makefile', 'makefile', 'GNUmakefile'} or filename.endswith('.mk') or 'makefile' in filename.lower():
             return 'Makefile'
         
-        # Handle Dockerfiles
-        if filename in {'Dockerfile'} or filename.endswith('.dockerfile'):
+        # Handle Dockerfiles  
+        if filename in {'Dockerfile'} or filename.endswith('.dockerfile') or 'dockerfile' in filename.lower():
             return 'Dockerfile'
         
         # Handle READMEs
-        if filename.upper().startswith('README'):
+        if 'readme' in filename.lower():
             return 'README'
         
         # Handle configuration files (including git config)
