@@ -1045,9 +1045,19 @@ class LineCounter:
         return patterns
     
     def is_gitignored(self, file_path: Path, git_patterns: List[str]) -> bool:
-        """Check if a file matches any gitignore pattern."""
+        """Check if a file matches any gitignore pattern.
+
+        Uses normalized path matching consistent with .nxlcignore implementation.
+        """
+        # Normalize path to forward slashes for cross-platform consistency
+        path_str = str(file_path).replace('\\', '/')
+
         for pattern in git_patterns:
-            if fnmatch.fnmatch(str(file_path), pattern) or fnmatch.fnmatch(file_path.name, pattern):
+            # Normalize pattern for cross-platform compatibility
+            pattern = pattern.replace('\\', '/')
+
+            # Reuse existing pattern matching logic
+            if self._matches_single_pattern(file_path, path_str, pattern):
                 return True
         return False
     
@@ -1195,11 +1205,13 @@ class LineCounter:
                     
                     if item.is_dir():
                         if not self.should_ignore_directory(item):
-                            analyze_recursively(item, current_depth + 1, context)
+                            relative_path = item.relative_to(directory)
+                            if not (should_use_git and self.is_gitignored(relative_path, git_patterns)):
+                                analyze_recursively(item, current_depth + 1, context)
                     elif item.is_file():
                         if not self.should_ignore_file(item):
                             relative_path = item.relative_to(directory)
-                            if not (use_git and self.is_gitignored(relative_path, git_patterns)):
+                            if not (should_use_git and self.is_gitignored(relative_path, git_patterns)):
                                 total, code, comment = self.count_lines_in_file(item)
                                 if total > 0:
                                     language = self.detect_language(item)

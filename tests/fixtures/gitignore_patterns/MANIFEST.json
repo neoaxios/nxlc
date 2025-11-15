@@ -1,0 +1,115 @@
+{
+  "description": "Test fixtures for .gitignore directory pattern validation",
+  "bug_context": "Files inside directories with .gitignore patterns ending in '/' were being counted incorrectly",
+  "fixtures": [
+    {
+      "name": "basic_dir_pattern",
+      "purpose": "Test that a simple directory pattern ignores all files in that directory",
+      "structure": {
+        "ignored_dirs": [".testgrid-cache/"],
+        "ignored_files": [".testgrid-cache/data.json", ".testgrid-cache/results.txt"],
+        "counted_files": ["main.py", "README.md", ".gitignore"]
+      },
+      "expected_file_count": 3,
+      "expected_results": {
+        "total_files": 3,
+        "languages": {
+          "Python": 1,
+          "Markdown": 1,
+          "Configuration": 1
+        }
+      }
+    },
+    {
+      "name": "nested_dir_pattern",
+      "purpose": "Test that nested files within ignored directories are also ignored",
+      "structure": {
+        "ignored_dirs": [".llmreplay_cache/"],
+        "ignored_files": [
+          ".llmreplay_cache/session1/data.json",
+          ".llmreplay_cache/session1/logs/debug.log",
+          ".llmreplay_cache/session2/data.json",
+          ".llmreplay_cache/session2/logs/debug.log"
+        ],
+        "counted_files": ["config.json", ".gitignore"]
+      },
+      "expected_file_count": 2,
+      "expected_results": {
+        "total_files": 2,
+        "languages": {
+          "JSON": 1,
+          "Configuration": 1
+        }
+      }
+    },
+    {
+      "name": "multi_dir_patterns",
+      "purpose": "Test multiple directory patterns in a single .gitignore file",
+      "structure": {
+        "ignored_dirs": [
+          ".testgrid-cache/",
+          ".build-cache/",
+          ".llmreplay_cache/",
+          "node_modules/"
+        ],
+        "ignored_files": [
+          ".testgrid-cache/data.txt",
+          ".build-cache/output.txt",
+          ".llmreplay_cache/replay.txt",
+          "node_modules/lib.js"
+        ],
+        "counted_files": ["main.py", ".gitignore"]
+      },
+      "expected_file_count": 2,
+      "expected_results": {
+        "total_files": 2,
+        "languages": {
+          "Python": 1,
+          "Configuration": 1
+        }
+      }
+    },
+    {
+      "name": "real_world_bug",
+      "purpose": "Recreate the exact bug scenario from production usage",
+      "structure": {
+        "ignored_dirs": [".testgrid-cache/"],
+        "ignored_files": [
+          ".testgrid-cache/2024-01-15_run1.json",
+          ".testgrid-cache/2024-01-15_run2.json",
+          ".testgrid-cache/metadata.txt"
+        ],
+        "counted_files": [
+          "src/main.py",
+          "tests/test_main.py",
+          "README.md",
+          ".gitignore"
+        ]
+      },
+      "expected_file_count": 4,
+      "expected_results": {
+        "total_files": 4,
+        "languages": {
+          "Python": 2,
+          "Markdown": 1,
+          "Configuration": 1
+        }
+      }
+    }
+  ],
+  "test_validation": {
+    "before_fix": {
+      "behavior": "Files in ignored directories are counted",
+      "example": "basic_dir_pattern would count 5 files instead of 3"
+    },
+    "after_fix": {
+      "behavior": "Files in ignored directories are correctly ignored",
+      "example": "basic_dir_pattern counts exactly 3 files"
+    }
+  },
+  "usage": {
+    "test_file": "tests/test_gitignore_fixtures.py",
+    "run_command": "python tests/test_gitignore_fixtures.py",
+    "pytest_command": "pytest tests/test_gitignore_fixtures.py -v"
+  }
+}
