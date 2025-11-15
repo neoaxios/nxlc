@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nxlc"
-version = "0.1.2"
+version = "0.1.3"
 description = "NeoAxios Language Counter - Fast line counting for 119+ programming languages"
 readme = "README.md"
 requires-python = ">=3.8"

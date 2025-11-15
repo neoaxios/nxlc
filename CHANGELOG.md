@@ -5,6 +5,19 @@ All notable changes to NeoAxios Language Counter will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2025-11-15
+
+### Fixed
+- **Critical bug fix**: .gitignore directory patterns now properly respected in git repositories
+  - Files in directories like `.testgrid-cache/`, `.build-cache/` are now correctly ignored
+  - Root cause: Auto-detection loaded .gitignore patterns but used wrong variable (`use_git` instead of `should_use_git`)
+  - Enhanced `is_gitignored()` to use sophisticated pattern matching for directory patterns (trailing `/`)
+  - Added directory-level .gitignore checks before recursing into subdirectories
+
+### Added
+- Comprehensive test suite for .gitignore functionality (21 new tests + 4 reusable fixtures)
+- E2E validation tests for .gitignore directory pattern handling
+
 ## [0.1.2] - 2025-08-22
 
 ### Changed
