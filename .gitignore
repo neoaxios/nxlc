@@ -133,12 +133,12 @@ test_output/
 #   DevKit/neo-packages/claude-config/
 # These paths are populated locally but never committed — editing them
 # here does not persist.  Edit the canonical source in DevKit instead.
-/.claude/agents/neo/
-/.claude/commands/neo/
-/.claude/skills/neo/
+/.claude/agents/neo
+/.claude/commands/neo
+/.claude/skills/neo
 /.claude/.devkit-sha
-/guides/standards/
-/guides/templates/
+/guides/standards
+/guides/templates
 /docs/agents/AGENT-ARCHITECTURE.md
 /docs/agents/README.md
 /docs/capabilities/CAPABILITIES.template.md
