@@ -46,6 +46,13 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# testgrid runtime state (per-package duration data, rerun state)
+.testgrid-cache/
+# Note: .testgrid-reports now defaults to system tmp, but kept here in case user configures custom path
+.testgrid-reports/
+# QRS flight-recorder session output (runtime artifact, per-machine)
+.qrs/
+
 # Translations
 *.mo
 *.pot
