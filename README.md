@@ -106,7 +106,7 @@ A: Yes, NXLC handles various encodings. Install `chardet` for enhanced encoding 
 ```
 usage: nxlc.py [-h] [--git] [--no-git] [--depth N] [--sort {lines,files,name}]
               [--verbose] [--comprehensive] [--linguist-path PATH]
-              [--no-color] [--debug] [--version]
+              [--no-color] [--debug] [--follow-symlinks] [--version]
               [directory]
 
 NeoAxios Language Counter - Count lines of code across 119+ programming languages
@@ -126,6 +126,7 @@ options:
   --linguist-path PATH  Path to github-linguist executable
   --no-color            Disable colored output
   --debug               Enable debug mode (show unknown files and extension analysis)
+  --follow-symlinks     Follow symlinks during walk (default: skipped, matches find/git/du/tar)
   --version             show program's version number and exit
 ```
 

@@ -5,6 +5,16 @@ All notable changes to NeoAxios Language Counter will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2026-05-02
+
+### Changed
+- **Symlinks are no longer followed by default during directory walk.** Vendored or shared-infra trees mounted via symlink (e.g. `.devkit/upstream/<name> -> ../<shared-repo>`) were inflating language counts because the symlink target lives in a separately-versioned tree that is not project source. New behaviour matches `find`, `git`, `du`, `tar` defaults.
+- Use `--follow-symlinks` to restore the previous behaviour when intentionally counting symlinked content.
+- Verbose mode (`-v`) now logs each skipped symlink with its target so the impact is visible.
+
+### Migration note
+Projects that relied on symlink-following to inflate counts (rare) will see lower numbers on first 0.1.4 run. Audit `nxlc -v 2>&1 | grep "Skipping symlink"` to identify which trees changed; pass `--follow-symlinks` if the previous totals were intentional.
+
 ## [0.1.3] - 2025-11-15
 
 ### Fixed

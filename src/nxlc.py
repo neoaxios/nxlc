@@ -1118,8 +1118,18 @@ class LineCounter:
         return False
     
     def analyze_directory(self, directory: Path, use_git: bool = False, no_git: bool = False,
-                         max_depth: int = None, verbose: bool = False, debug: bool = False) -> Dict[str, Any]:
-        """Analyze directory and return language statistics with encapsulated state."""
+                         max_depth: int = None, verbose: bool = False, debug: bool = False,
+                         follow_symlinks: bool = False) -> Dict[str, Any]:
+        """Analyze directory and return language statistics with encapsulated state.
+
+        ``follow_symlinks`` defaults to ``False`` so symlinked files and
+        directories encountered during the walk are skipped — vendored
+        third-party trees mounted via symlink (a common shared-infra
+        pattern) do not get counted as project code. The user-supplied
+        root directory itself is still resolved (an explicit "scan THIS
+        directory" honours the user's intent) — only symlinks discovered
+        BELOW the root are subject to the skip.
+        """
         
         results = {
             'languages': defaultdict(lambda: {'files': 0, 'total_lines': 0, 'code_lines': 0, 'comment_lines': 0}),
@@ -1191,6 +1201,29 @@ class LineCounter:
             
             try:
                 for item in current_dir.iterdir():
+                    # Skip symlinks unless explicitly opted in via --follow-symlinks.
+                    # Default-off matches `find`, `git`, `du`, `tar` defaults and
+                    # prevents vendored / shared-infra trees mounted via symlink
+                    # (e.g. `.devkit/upstream/<name> -> ../<shared-repo>`) from
+                    # inflating language counts. The visited_dirs guard above
+                    # only protects against infinite recursion within the same
+                    # tree; it does not stop traversal into a separate tree.
+                    if item.is_symlink() and not follow_symlinks:
+                        if verbose:
+                            try:
+                                rel = item.relative_to(directory)
+                            except ValueError:
+                                rel = item
+                            # Match line 1284's verbose-print convention so
+                            # this message lands in the same stream (stdout)
+                            # as per-file lines and doesn't interleave with
+                            # stderr-bound logger output.
+                            print(
+                                f"  Skipping symlink: {rel} -> {os.readlink(item)} "
+                                f"(use --follow-symlinks to include)"
+                            )
+                        continue
+
                     # Check if item should be ignored using hierarchical context
                     if context:
                         # Use hierarchical context with debug support
@@ -1433,7 +1466,12 @@ Note: .gitignore is automatically respected in git repositories. Use --no-git to
                        help='Disable colored output')
     parser.add_argument('--debug', action='store_true',
                        help='Enable debug mode (show unknown files and extension analysis)')
-    parser.add_argument('--version', action='version', version='NeoAxios Language Counter 0.1.1')
+    parser.add_argument('--follow-symlinks', action='store_true',
+                       help=('Follow symlinks during directory walk (default: skipped). '
+                             'Enable to include vendored or shared-infra trees mounted '
+                             'via symlink — e.g. .devkit/upstream/<name> -> shared repo. '
+                             'Default-off matches find/git/du/tar.'))
+    parser.add_argument('--version', action='version', version='NeoAxios Language Counter 0.1.4')
     
     args = parser.parse_args()
     
@@ -1482,7 +1520,8 @@ Note: .gitignore is automatically respected in git repositories. Use --no-git to
             no_git=args.no_git,
             max_depth=args.depth,
             verbose=args.verbose,
-            debug=args.debug
+            debug=args.debug,
+            follow_symlinks=args.follow_symlinks,
         )
         
         # Format and display results

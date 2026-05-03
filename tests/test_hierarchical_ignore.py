@@ -477,19 +477,64 @@ class TestEdgeCases(HierarchicalIgnoreTestBase):
         """Test symlinked .nxlcignore files."""
         # Create actual ignore file
         self.fs.create_file("configs/ignore_rules", "*.txt\n*.log")
-        
+
         # Symlink it as .nxlcignore
         link_path = self.test_path / ".nxlcignore"
         link_path.symlink_to(self.test_path / "configs" / "ignore_rules")
-        
+
         self.fs.create_file("test.txt", "text")
         self.fs.create_file("test.py", "code")
-        
+
         results = self.analyze_with_hierarchical()
-        
+
         # Should respect symlinked .nxlcignore
         text_count = self.get_language_file_count(results, "Text")
         self.assertEqual(text_count, 0)
+
+    @unittest.skipIf(platform.system() == 'Windows', "Symlinks require admin on Windows")
+    def test_symlinks_skipped_by_default(self):
+        """Symlinked subtrees are NOT counted by default (matches find/git/du).
+
+        Regression guard: a symlink mounting a separately-versioned tree (e.g.
+        ``.devkit/upstream/<name> -> ../<shared-repo>``) used to be walked and
+        its files counted as project source, inflating language totals. Default
+        is now to skip symlinks during the walk.
+        """
+        # Real project file in the root tree
+        self.fs.create_file("project.py", "print('project')\n")
+
+        # External tree — staged in a SIBLING tempdir so it's not part of the
+        # analyzed root. The only path into it is the symlink we mount below.
+        external = Path(tempfile.mkdtemp(prefix="nxlc_external_"))
+        self.addCleanup(shutil.rmtree, external, ignore_errors=True)
+        (external / "vendored.py").write_text("print('vendored')\nprint('extra')\n")
+        (external / "vendored2.py").write_text("x = 1\n")
+
+        # Mount the external tree inside the analyzed root via a symlink.
+        # iterdir() will yield this as a directory entry; without the skip,
+        # the walk would descend into it and count vendored.py + vendored2.py.
+        (self.test_path / "vendor_link").symlink_to(external)
+
+        # Default: skip the symlink — only project.py is counted.
+        default_results = self.counter.analyze_directory(
+            directory=self.test_path,
+            verbose=False,
+            debug=False,
+        )
+        py_count_default = self.get_language_file_count(default_results, "Python")
+        self.assertEqual(py_count_default, 1,
+                         "default should skip the symlinked vendor tree — only project.py counts")
+
+        # Opt-in: --follow-symlinks restores the old behaviour.
+        followed_results = self.counter.analyze_directory(
+            directory=self.test_path,
+            verbose=False,
+            debug=False,
+            follow_symlinks=True,
+        )
+        py_count_followed = self.get_language_file_count(followed_results, "Python")
+        self.assertEqual(py_count_followed, 3,
+                         "--follow-symlinks should descend into vendor_link and count 2 vendored files + project.py")
         
     def test_unicode_patterns_and_paths(self):
         """Test Unicode in patterns and file paths."""
